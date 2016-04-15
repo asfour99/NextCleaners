@@ -1,0 +1,32 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "F4F8BA65B847537364CC09FA4C17EE8979E83DD5",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "389efa76-fc77-c64d-8c23-824b3dd95cb3++6180" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "F4F8BA65B847537364CC09FA4C17EE8979E83DD5" : 0,
+    "389efa76-fc77-c64d-8c23-824b3dd95cb3++6180" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "CA393E19-BB3B-4860-AC1C-833656B9CD6B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "F4F8BA65B847537364CC09FA4C17EE8979E83DD5" : "NextCleaners\/",
+    "389efa76-fc77-c64d-8c23-824b3dd95cb3++6180" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "NextCleaners",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "NextCleaners.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/74.208.209.176:8080\/svn\/CODE",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "389efa76-fc77-c64d-8c23-824b3dd95cb3++6180"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/74.208.209.176:8080\/svn\/CODE\/MOBILE\/NextCleaners\/IOS",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F4F8BA65B847537364CC09FA4C17EE8979E83DD5"
+    }
+  ]
+}
