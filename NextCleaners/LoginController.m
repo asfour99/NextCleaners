@@ -8,11 +8,15 @@
 
 #import "LoginController.h"
 #import "FloatLabeledTextField.h"
+#import <QuartzCore/QuartzCore.h>
 //SS///
 @interface LoginController ()
 
-@property(weak,nonatomic)IBOutlet FloatLabeledTextField *emailId_Field;
-@property(weak,nonatomic)IBOutlet FloatLabeledTextField *password_Field;
+@property(weak,nonatomic)IBOutlet UITextField *emailId_Field;
+@property(weak,nonatomic)IBOutlet UITextField *password_Field;
+@property(weak,nonatomic)IBOutlet UIButton *signinBtn;
+
+@property(weak,nonatomic)IBOutlet UIButton *facebookBtn;
 
 @end
 
@@ -20,16 +24,44 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    self.navigationController.navigationBarHidden=FALSE;
+    //// Do any additional setup after loading the view from its nib.
+    self.navigationController.navigationBarHidden=TRUE;
+    
+    
+
+    _emailId_Field.layer.cornerRadius=8.0f;
+    _emailId_Field.layer.masksToBounds=YES;
+    _emailId_Field.layer.borderColor=[[UIColor colorWithRed:122.0f/255.0f green:192.0f/255.0f blue:66.0f/255.0f alpha:1.0f]CGColor];
+    _emailId_Field.layer.borderWidth= 2.0f;
+    UIColor *color = [UIColor whiteColor];
+    _emailId_Field.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"    Email" attributes:@{NSForegroundColorAttributeName: color}];
+    
+    _password_Field.layer.cornerRadius=8.0f;
+    _password_Field.layer.masksToBounds=YES;
+    _password_Field.layer.borderColor=[[UIColor colorWithRed:122.0f/255.0f green:192.0f/255.0f blue:66.0f/255.0f alpha:1.0f]CGColor];
+    _password_Field.layer.borderWidth= 2.0f;
+    _password_Field.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"    Password" attributes:@{NSForegroundColorAttributeName: color}];
+    
+    _signinBtn.layer.cornerRadius=8.0f;
+    _signinBtn.layer.masksToBounds=YES;
+    _signinBtn.layer.borderColor=[[UIColor colorWithRed:122.0f/255.0f green:192.0f/255.0f blue:66.0f/255.0f alpha:1.0f]CGColor];
+    _signinBtn.layer.borderWidth= 1.0f;
+    
+    _facebookBtn.layer.cornerRadius=8.0f;
+    _facebookBtn.layer.masksToBounds=YES;
+    _facebookBtn.layer.borderColor=[[UIColor clearColor]CGColor];
+    _facebookBtn.layer.borderWidth= 1.0f;
 }
+
+-(IBAction)cancelBtnPressed:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    _emailId_Field.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Email*"
-                                                                                        attributes:@{NSForegroundColorAttributeName:[UIColor grayColor]}];
-    _password_Field.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Password*"
-                                                                           attributes:@{NSForegroundColorAttributeName:[UIColor grayColor]}];
+    
 }
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField;
 {
