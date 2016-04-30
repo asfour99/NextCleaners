@@ -20,6 +20,17 @@
 		5D05989E1CD3830300613E9A /* BackButton_iPh@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D05989D1CD3830300613E9A /* BackButton_iPh@3x.png */; };
 		5D0598A01CD3831400613E9A /* BackButton_iPh@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D05989F1CD3831400613E9A /* BackButton_iPh@2x.png */; };
 		5D0598A21CD3832600613E9A /* BackButton_iPh.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D0598A11CD3832600613E9A /* BackButton_iPh.png */; };
+		5D0598A61CD3B9E800613E9A /* CardDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0598A41CD3B9E800613E9A /* CardDetailsController.m */; };
+		5D0598A71CD3B9E800613E9A /* CardDetailsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D0598A51CD3B9E800613E9A /* CardDetailsController.xib */; };
+		5D0598A91CD3C83A00613E9A /* Card_iPh.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D0598A81CD3C83900613E9A /* Card_iPh.png */; };
+		5D0598AB1CD3C84E00613E9A /* Card_iPh@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D0598AA1CD3C84E00613E9A /* Card_iPh@2x.png */; };
+		5D0598AD1CD3C86100613E9A /* Card_iPh@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D0598AC1CD3C86100613E9A /* Card_iPh@3x.png */; };
+		5D0598AF1CD3C89100613E9A /* NextBtn_iPh.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D0598AE1CD3C89100613E9A /* NextBtn_iPh.png */; };
+		5D0598B11CD3C8C200613E9A /* NextBtn_iPh@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D0598B01CD3C8C200613E9A /* NextBtn_iPh@2x.png */; };
+		5D0598B31CD3C8DF00613E9A /* NextBtn_iPh@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D0598B21CD3C8DF00613E9A /* NextBtn_iPh@3x.png */; };
+		5D0598B51CD3D40C00613E9A /* BackBtnPurple.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D0598B41CD3D40C00613E9A /* BackBtnPurple.png */; };
+		5D0598B71CD3D42500613E9A /* BackButtonPurple@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D0598B61CD3D42500613E9A /* BackButtonPurple@2x.png */; };
+		5D0598B91CD3D44000613E9A /* BackButtonPurple@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D0598B81CD3D44000613E9A /* BackButtonPurple@3x.png */; };
 		5D06FD0B1CBD772300E44E4E /* Customer_Service.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D06FD081CBD772300E44E4E /* Customer_Service.png */; };
 		5D06FD0C1CBD772300E44E4E /* Dry_Cleaning.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D06FD091CBD772300E44E4E /* Dry_Cleaning.png */; };
 		5D06FD0D1CBD772300E44E4E /* On_Demand.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D06FD0A1CBD772300E44E4E /* On_Demand.png */; };
@@ -108,6 +119,18 @@
 		5D05989D1CD3830300613E9A /* BackButton_iPh@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BackButton_iPh@3x.png"; sourceTree = "<group>"; };
 		5D05989F1CD3831400613E9A /* BackButton_iPh@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BackButton_iPh@2x.png"; sourceTree = "<group>"; };
 		5D0598A11CD3832600613E9A /* BackButton_iPh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BackButton_iPh.png; sourceTree = "<group>"; };
+		5D0598A31CD3B9E800613E9A /* CardDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardDetailsController.h; sourceTree = "<group>"; };
+		5D0598A41CD3B9E800613E9A /* CardDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardDetailsController.m; sourceTree = "<group>"; };
+		5D0598A51CD3B9E800613E9A /* CardDetailsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardDetailsController.xib; sourceTree = "<group>"; };
+		5D0598A81CD3C83900613E9A /* Card_iPh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Card_iPh.png; sourceTree = "<group>"; };
+		5D0598AA1CD3C84E00613E9A /* Card_iPh@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Card_iPh@2x.png"; sourceTree = "<group>"; };
+		5D0598AC1CD3C86100613E9A /* Card_iPh@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Card_iPh@3x.png"; sourceTree = "<group>"; };
+		5D0598AE1CD3C89100613E9A /* NextBtn_iPh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NextBtn_iPh.png; sourceTree = "<group>"; };
+		5D0598B01CD3C8C200613E9A /* NextBtn_iPh@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NextBtn_iPh@2x.png"; sourceTree = "<group>"; };
+		5D0598B21CD3C8DF00613E9A /* NextBtn_iPh@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NextBtn_iPh@3x.png"; sourceTree = "<group>"; };
+		5D0598B41CD3D40C00613E9A /* BackBtnPurple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BackBtnPurple.png; sourceTree = "<group>"; };
+		5D0598B61CD3D42500613E9A /* BackButtonPurple@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BackButtonPurple@2x.png"; sourceTree = "<group>"; };
+		5D0598B81CD3D44000613E9A /* BackButtonPurple@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BackButtonPurple@3x.png"; sourceTree = "<group>"; };
 		5D06FD081CBD772300E44E4E /* Customer_Service.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Customer_Service.png; sourceTree = "<group>"; };
 		5D06FD091CBD772300E44E4E /* Dry_Cleaning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Dry_Cleaning.png; sourceTree = "<group>"; };
 		5D06FD0A1CBD772300E44E4E /* On_Demand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = On_Demand.png; sourceTree = "<group>"; };
@@ -216,6 +239,9 @@
 		5D06FD051CBD723000E44E4E /* iPhone5 */ = {
 			isa = PBXGroup;
 			children = (
+				5D0598B41CD3D40C00613E9A /* BackBtnPurple.png */,
+				5D0598AE1CD3C89100613E9A /* NextBtn_iPh.png */,
+				5D0598A81CD3C83900613E9A /* Card_iPh.png */,
 				5D0598A11CD3832600613E9A /* BackButton_iPh.png */,
 				5D05988B1CD3136800613E9A /* UserLogin_iPh.png */,
 				5D05988C1CD3136800613E9A /* UserSignUp_iPh.png */,
@@ -235,6 +261,9 @@
 		5D06FD061CBD723000E44E4E /* iPhone6 */ = {
 			isa = PBXGroup;
 			children = (
+				5D0598B61CD3D42500613E9A /* BackButtonPurple@2x.png */,
+				5D0598B01CD3C8C200613E9A /* NextBtn_iPh@2x.png */,
+				5D0598AA1CD3C84E00613E9A /* Card_iPh@2x.png */,
 				5D05989F1CD3831400613E9A /* BackButton_iPh@2x.png */,
 				5D0598911CD3139D00613E9A /* UserSignUp_iPh@2x.png */,
 				5D05988F1CD3138200613E9A /* UserLogin_iPh@2x.png */,
@@ -254,6 +283,9 @@
 		5D06FD071CBD723000E44E4E /* iPhone6Plus */ = {
 			isa = PBXGroup;
 			children = (
+				5D0598B81CD3D44000613E9A /* BackButtonPurple@3x.png */,
+				5D0598B21CD3C8DF00613E9A /* NextBtn_iPh@3x.png */,
+				5D0598AC1CD3C86100613E9A /* Card_iPh@3x.png */,
 				5D05989D1CD3830300613E9A /* BackButton_iPh@3x.png */,
 				5D0598931CD313DC00613E9A /* UserLogin_iPh@3x.png */,
 				5D0598941CD313DC00613E9A /* UserSignUp_iPh@3x.png */,
@@ -332,6 +364,9 @@
 				5D0FFAD11CAFD3880099EF4E /* AddressController.h */,
 				5D0FFAD21CAFD3880099EF4E /* AddressController.m */,
 				5D0FFAD31CAFD3880099EF4E /* AddressController.xib */,
+				5D0598A31CD3B9E800613E9A /* CardDetailsController.h */,
+				5D0598A41CD3B9E800613E9A /* CardDetailsController.m */,
+				5D0598A51CD3B9E800613E9A /* CardDetailsController.xib */,
 				5D163F5B1CAA47DC004B2F14 /* Assets.xcassets */,
 				5D163F601CAA47DC004B2F14 /* Info.plist */,
 				5D163F4F1CAA47DB004B2F14 /* Supporting Files */,
@@ -501,13 +536,18 @@
 				5D0FFAE81CB06DC40099EF4E /* Popover_Checkout.xib in Resources */,
 				5D06FD2F1CBD7EEB00E44E4E /* LogIn_Inactive@3x.png in Resources */,
 				5D06FD201CBD7E1800E44E4E /* SignUp_Active.png in Resources */,
+				5D0598B91CD3D44000613E9A /* BackButtonPurple@3x.png in Resources */,
+				5D0598AF1CD3C89100613E9A /* NextBtn_iPh.png in Resources */,
 				5D06FD121CBD778E00E44E4E /* Dry_Cleaning@2x.png in Resources */,
+				5D0598B31CD3C8DF00613E9A /* NextBtn_iPh@3x.png in Resources */,
 				5D06FD111CBD778E00E44E4E /* Customer_Service@2x.png in Resources */,
 				5D05989E1CD3830300613E9A /* BackButton_iPh@3x.png in Resources */,
 				5D06FD271CBD7E8C00E44E4E /* LogIn_Inactive@2x.png in Resources */,
 				5D0598A21CD3832600613E9A /* BackButton_iPh.png in Resources */,
 				5D0598A01CD3831400613E9A /* BackButton_iPh@2x.png in Resources */,
+				5D0598B71CD3D42500613E9A /* BackButtonPurple@2x.png in Resources */,
 				5D05988A1CD312F600613E9A /* BlankBack_iPh@3x.png in Resources */,
+				5D0598AB1CD3C84E00613E9A /* Card_iPh@2x.png in Resources */,
 				5D06FD131CBD778E00E44E4E /* On_Demand@2x.png in Resources */,
 				5D0598961CD313DC00613E9A /* UserSignUp_iPh@3x.png in Resources */,
 				5D0FFAEC1CB078120099EF4E /* ic_arrow_drop_down_48px-128.png in Resources */,
@@ -516,12 +556,16 @@
 				5D0FFACF1CAFD1B30099EF4E /* coupons_active.png in Resources */,
 				5D0598951CD313DC00613E9A /* UserLogin_iPh@3x.png in Resources */,
 				5D0598881CD312CB00613E9A /* BlankBack_iPh@2x.png in Resources */,
+				5D0598B51CD3D40C00613E9A /* BackBtnPurple.png in Resources */,
+				5D0598A91CD3C83A00613E9A /* Card_iPh.png in Resources */,
 				5D06FD301CBD7EEB00E44E4E /* SignUp_Active@3x.png in Resources */,
 				5D06FD1E1CBD7E1800E44E4E /* LogIn_Active.png in Resources */,
+				5D0598B11CD3C8C200613E9A /* NextBtn_iPh@2x.png in Resources */,
 				5D0FFAD01CAFD1B30099EF4E /* coupons_inactive.png in Resources */,
 				5D06FD191CBD77D700E44E4E /* On_Demand@3x.png in Resources */,
 				5D06FD0C1CBD772300E44E4E /* Dry_Cleaning.png in Resources */,
 				5D163F5C1CAA47DC004B2F14 /* Assets.xcassets in Resources */,
+				5D0598A71CD3B9E800613E9A /* CardDetailsController.xib in Resources */,
 				5D06FD281CBD7E8C00E44E4E /* SignUp_Active@2x.png in Resources */,
 				5D06FD351CBD823500E44E4E /* Login_iPhone@2x.png in Resources */,
 				5D163F9F1CAA62B8004B2F14 /* login-in-facebook-@2x.png in Resources */,
@@ -539,6 +583,7 @@
 				5D0FFAD51CAFD3880099EF4E /* AddressController.xib in Resources */,
 				5D06FD291CBD7E8C00E44E4E /* SignUp_Inactive@2x.png in Resources */,
 				5D06FD1F1CBD7E1800E44E4E /* LogIn_Inactive.png in Resources */,
+				5D0598AD1CD3C86100613E9A /* Card_iPh@3x.png in Resources */,
 				5D06FD311CBD7EEB00E44E4E /* SignUp_Inactive@3x.png in Resources */,
 				5D0598901CD3138200613E9A /* UserLogin_iPh@2x.png in Resources */,
 				5D06FD371CBD825700E44E4E /* Login_iPhone.png in Resources */,
@@ -578,6 +623,7 @@
 				5D0FFAE91CB06DC40099EF4E /* Popover_Passenger.m in Sources */,
 				5D0FFAE61CB06DC40099EF4E /* FPTouchView.m in Sources */,
 				5D163F9D1CAA6024004B2F14 /* NSString+TextDirectionality.m in Sources */,
+				5D0598A61CD3B9E800613E9A /* CardDetailsController.m in Sources */,
 				5D163F861CAA4A47004B2F14 /* WelcomeController.m in Sources */,
 				5D163F511CAA47DB004B2F14 /* main.m in Sources */,
 				5D163F9C1CAA6024004B2F14 /* FloatLabeledTextView.m in Sources */,
