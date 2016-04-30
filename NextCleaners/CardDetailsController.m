@@ -1,82 +1,93 @@
 //
-//  LoginController.m
+//  CardDetailsController.m
 //  NextCleaners
 //
-//  Created by Monika on 29/03/16.
+//  Created by Monika on 29/04/16.
 //  Copyright © 2016 NextCleaners. All rights reserved.
 //
 
-#import "LoginController.h"
-#import "FloatLabeledTextField.h"
-#import <QuartzCore/QuartzCore.h>
+#import "CardDetailsController.h"
+#import "AddressController.h"
 static const CGFloat KEYBOARD_ANIMATION_DURATION =0.3;
 static const CGFloat MINIMUM_SCROLL_FRACTION = 0.2;
 static const CGFloat MAXIMUM_SCROLL_FRACTION = 0.8;
 static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 216;
 static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
-//SS///
-@interface LoginController ()
 
-@property(weak,nonatomic)IBOutlet UITextField *emailId_Field;
-@property(weak,nonatomic)IBOutlet UITextField *password_Field;
-@property(weak,nonatomic)IBOutlet UIButton *signinBtn;
+@interface CardDetailsController ()
 
-@property(weak,nonatomic)IBOutlet UIButton *facebookBtn;
+@property(weak,nonatomic)IBOutlet UITextField *cardNo_Field;
+@property(weak,nonatomic)IBOutlet UITextField *cvc_Field;
+@property(weak,nonatomic)IBOutlet UITextField *zipCode_Field;
+//@property(weak,nonatomic)IBOutlet UITextField *lastName_Field;
+//@property(weak,nonatomic)IBOutlet UITextField *phone_Field;
+@property(weak,nonatomic)IBOutlet UIButton *monthBtn;
+@property(weak,nonatomic)IBOutlet UIButton *yearBtn;
+@property(weak,nonatomic)IBOutlet UIButton *cardBtn;
+@property(weak,nonatomic)IBOutlet UIButton *nextBtn;
 
 @end
 
-@implementation LoginController
+@implementation CardDetailsController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //// Do any additional setup after loading the view from its nib.
+    // Do any additional setup after loading the view from its nib.
+    
     self.navigationController.navigationBarHidden=TRUE;
-    
-    
-
-    _emailId_Field.layer.cornerRadius=8.0f;
-    _emailId_Field.layer.masksToBounds=YES;
-    _emailId_Field.layer.borderColor=[[UIColor colorWithRed:122.0f/255.0f green:192.0f/255.0f blue:66.0f/255.0f alpha:1.0f]CGColor];
-    _emailId_Field.layer.borderWidth= 2.0f;
+    _cardNo_Field.layer.cornerRadius=8.0f;
+    _cardNo_Field.layer.masksToBounds=YES;
+    _cardNo_Field.layer.borderColor=[[UIColor colorWithRed:122.0f/255.0f green:192.0f/255.0f blue:66.0f/255.0f alpha:1.0f]CGColor];
+    _cardNo_Field.layer.borderWidth= 1.0f;
     UIColor *color = [UIColor whiteColor];
-    _emailId_Field.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Email" attributes:@{NSForegroundColorAttributeName: color}];
-    _emailId_Field.layer.sublayerTransform = CATransform3DMakeTranslation(15, 0, 0);
-    _emailId_Field.font=[UIFont fontWithName:@"montserrat-light.ttf" size:27];
-    _emailId_Field.textColor=[UIColor whiteColor];
+    _cardNo_Field.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Card #" attributes:@{NSForegroundColorAttributeName: color}];
+    _cardNo_Field.layer.sublayerTransform = CATransform3DMakeTranslation(15, 0, 0);
+    _cardNo_Field.font=[UIFont fontWithName:@"montserrat-light.ttf" size:27];
+    _cardNo_Field.textColor=[UIColor whiteColor];
     
-    _password_Field.layer.cornerRadius=8.0f;
-    _password_Field.layer.masksToBounds=YES;
-    _password_Field.layer.borderColor=[[UIColor colorWithRed:122.0f/255.0f green:192.0f/255.0f blue:66.0f/255.0f alpha:1.0f]CGColor];
-    _password_Field.layer.borderWidth= 2.0f;
-    _password_Field.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Password" attributes:@{NSForegroundColorAttributeName: color}];
-    _password_Field.layer.sublayerTransform = CATransform3DMakeTranslation(15, 0, 0);
-    _password_Field.font=[UIFont fontWithName:@"montserrat-light.ttf" size:27];
-    _password_Field.textColor=[UIColor whiteColor];
+    _cvc_Field.layer.cornerRadius=8.0f;
+    _cvc_Field.layer.masksToBounds=YES;
+    _cvc_Field.layer.borderColor=[[UIColor colorWithRed:122.0f/255.0f green:192.0f/255.0f blue:66.0f/255.0f alpha:1.0f]CGColor];
+    _cvc_Field.layer.borderWidth= 1.0f;
     
-    _signinBtn.layer.cornerRadius=8.0f;
-    _signinBtn.layer.masksToBounds=YES;
-    _signinBtn.layer.borderColor=[[UIColor colorWithRed:122.0f/255.0f green:192.0f/255.0f blue:66.0f/255.0f alpha:1.0f]CGColor];
-    _signinBtn.layer.borderWidth= 1.0f;
+    _cvc_Field.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"CVC" attributes:@{NSForegroundColorAttributeName: color}];
+    _cvc_Field.layer.sublayerTransform = CATransform3DMakeTranslation(15, 0, 0);
+    _cvc_Field.font=[UIFont fontWithName:@"montserrat-light.ttf" size:27];
+    _cvc_Field.textColor=[UIColor whiteColor];
     
-    _facebookBtn.layer.cornerRadius=8.0f;
-    _facebookBtn.layer.masksToBounds=YES;
-    _facebookBtn.layer.borderColor=[[UIColor clearColor]CGColor];
-    _facebookBtn.layer.borderWidth= 1.0f;
-}
+    _zipCode_Field.layer.cornerRadius=8.0f;
+    _zipCode_Field.layer.masksToBounds=YES;
+    _zipCode_Field.layer.borderColor=[[UIColor colorWithRed:122.0f/255.0f green:192.0f/255.0f blue:66.0f/255.0f alpha:1.0f]CGColor];
+    _zipCode_Field.layer.borderWidth= 1.0f;
+    _zipCode_Field.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Zip Code" attributes:@{NSForegroundColorAttributeName: color}];
+    _zipCode_Field.layer.sublayerTransform = CATransform3DMakeTranslation(15, 0, 0);
+    _zipCode_Field.font=[UIFont fontWithName:@"montserrat-light.ttf" size:27];
+    _zipCode_Field.textColor=[UIColor whiteColor];
+    
+    _monthBtn.layer.cornerRadius=8.0f;
+    _monthBtn.layer.masksToBounds=YES;
+    _monthBtn.layer.borderColor=[[UIColor colorWithRed:122.0f/255.0f green:192.0f/255.0f blue:66.0f/255.0f alpha:1.0f]CGColor];
+    _monthBtn.layer.borderWidth= 1.0f;
+    
+    _yearBtn.layer.cornerRadius=8.0f;
+    _yearBtn.layer.masksToBounds=YES;
+    _yearBtn.layer.borderColor=[[UIColor colorWithRed:122.0f/255.0f green:192.0f/255.0f blue:66.0f/255.0f alpha:1.0f]CGColor];
+    _yearBtn.layer.borderWidth= 1.0f;
+    
 
+
+
+}
 -(IBAction)cancelBtnPressed:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-
-//-(void)textFieldDidBeginEditing:(UITextField *)textField
-//{
-//    
-//}
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField;
+-(IBAction)nextBtnPressed:(id)sender
 {
-    return TRUE;
+    AddressController *loginCon=[[AddressController alloc]initWithNibName:@"AddressController" bundle:nil];
+    [self.navigationController pushViewController:loginCon animated:YES];
+    
 }
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
@@ -144,7 +155,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     
     [UIView commitAnimations];
     
-        NSLog(@"ert=%f",animatedDistance);
+    NSLog(@"ert=%f",animatedDistance);
     
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationBeginsFromCurrentState:YES];
@@ -179,8 +190,6 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     
     [UIView commitAnimations];
 }
-
-
 
 
 

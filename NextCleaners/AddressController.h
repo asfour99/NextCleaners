@@ -14,6 +14,9 @@
 @interface AddressController : UIViewController
 {
     IBOutlet MKMapView *mapView;
+    
+        CGFloat animatedDistance;
+    
 
 }
 @property(retain,nonatomic) FPPopoverController *popover;

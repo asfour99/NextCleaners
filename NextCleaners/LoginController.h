@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface LoginController : UIViewController
+{
+    CGFloat animatedDistance;
+}
 
 @end

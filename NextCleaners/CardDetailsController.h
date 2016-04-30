@@ -1,15 +1,14 @@
 //
-//  SignUpController.h
+//  CardDetailsController.h
 //  NextCleaners
 //
-//  Created by Monika on 01/04/16.
+//  Created by Monika on 29/04/16.
 //  Copyright © 2016 NextCleaners. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-
-@interface SignUpController : UIViewController
+@interface CardDetailsController : UIViewController
 {
     CGFloat animatedDistance;
 }
