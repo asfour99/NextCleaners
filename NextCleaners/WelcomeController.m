@@ -27,7 +27,7 @@
 @implementation WelcomeController
 //@synthesize playercontroller;
 
-- (void)viewDidLoad {
+- (void)viewDidLoad  {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     // pick a video from the documents directory

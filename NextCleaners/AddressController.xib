@@ -94,7 +94,7 @@
                                 <constraint firstAttribute="width" constant="10" id="ZNO-pW-Ytg"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6UD-Dk-EWT">
@@ -134,6 +134,9 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cGa-8T-88B">
                             <rect key="frame" x="184" y="322" width="142" height="56"/>
                             <state key="normal" image="NextBtn_iPh.png"/>
+                            <connections>
+                                <action selector="nextBtnPressed:" destination="-1" eventType="touchUpInside" id="DVh-vp-w86"/>
+                            </connections>
                         </button>
                     </subviews>
                     <constraints>
@@ -184,7 +187,7 @@
                         <constraint firstAttribute="height" constant="1" id="vZ9-Jk-Mqz"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jFx-4e-nPP">

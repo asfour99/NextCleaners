@@ -8,6 +8,9 @@
 
 #import "AddressController.h"
 #import "Popover_Checkout.h"
+#import "JDMenuViewController.h"
+#import "JDSideMenu.h"
+#import "MainViewController.h"
 static const CGFloat KEYBOARD_ANIMATION_DURATION =0.3;
 static const CGFloat MINIMUM_SCROLL_FRACTION = 0.2;
 static const CGFloat MAXIMUM_SCROLL_FRACTION = 0.8;
@@ -345,6 +348,17 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 -(IBAction)cancelBtnPressed:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
+}
+-(IBAction)nextBtnPressed:(id)sender
+{
+    UIViewController *menuController = [[JDMenuViewController alloc] init];
+     MainViewController *mainVC = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
+    
+//     UIViewController *navController = [[UINavigationController alloc] initWithRootViewController:mainVC];
+    JDSideMenu *sideMenu = [[JDSideMenu alloc] initWithContentController:mainVC
+                                                          menuController:menuController];
+    [self.navigationController pushViewController:sideMenu animated:YES];
+    
 }
 
 
