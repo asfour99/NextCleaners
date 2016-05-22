@@ -24,7 +24,7 @@
             <connections>
                 <outlet property="calendarContentView" destination="4Nt-fo-g2H" id="fhx-4o-6sp"/>
                 <outlet property="mainScroller" destination="U6M-vT-tym" id="aMU-dz-NyS"/>
-                <outlet property="orderPlaceSuccessView" destination="taI-Rf-auQ" id="c0Y-vP-p2V"/>
+                <outlet property="orderPlaceSuccessView" destination="zxV-Pr-rXR" id="seG-lo-hIz"/>
                 <outlet property="placeOrder" destination="OCM-n0-RhB" id="44P-I1-Pfi"/>
                 <outlet property="preferencesBtn" destination="d3r-qN-Uq4" id="cMI-8R-HE8"/>
                 <outlet property="referFriendBtn" destination="o6J-yn-Ia5" id="uVI-0s-nVW"/>
@@ -57,7 +57,7 @@
                     <color key="textColor" red="0.41960784313725491" green="0.23921568627450979" blue="0.62745098039215685" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8h-X9-zzH">
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8h-X9-zzH">
                     <rect key="frame" x="15" y="28" width="32" height="26"/>
                     <state key="normal" image="Menu_Nav_icon.png"/>
                 </button>
@@ -100,10 +100,10 @@
                             </state>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OCM-n0-RhB">
-                            <rect key="frame" x="27" y="561" width="320" height="50"/>
+                            <rect key="frame" x="27" y="561" width="320" height="40"/>
                             <color key="backgroundColor" red="0.41960784309999999" green="0.23921568630000001" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="50" id="WjT-yn-wMJ"/>
+                                <constraint firstAttribute="height" constant="40" id="WjT-yn-wMJ"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="18"/>
                             <state key="normal" title="Place Order">
@@ -133,7 +133,7 @@
                         <constraint firstItem="OCM-n0-RhB" firstAttribute="top" secondItem="TsG-Fe-OmG" secondAttribute="bottom" constant="21" id="fdz-bk-6Lg"/>
                         <constraint firstItem="TsG-Fe-OmG" firstAttribute="leading" secondItem="U6M-vT-tym" secondAttribute="leading" constant="27" id="ffY-67-Bo1"/>
                         <constraint firstItem="gGg-9J-hBQ" firstAttribute="leading" secondItem="U6M-vT-tym" secondAttribute="leading" id="gbD-ic-gIx"/>
-                        <constraint firstAttribute="bottom" secondItem="OCM-n0-RhB" secondAttribute="bottom" constant="13" id="h07-Gt-eWg"/>
+                        <constraint firstAttribute="bottom" secondItem="OCM-n0-RhB" secondAttribute="bottom" constant="23" id="h07-Gt-eWg"/>
                         <constraint firstItem="OCM-n0-RhB" firstAttribute="trailing" secondItem="TsG-Fe-OmG" secondAttribute="trailing" id="kfP-EH-aEd"/>
                         <constraint firstItem="lXJ-wB-ukL" firstAttribute="top" secondItem="gGg-9J-hBQ" secondAttribute="bottom" constant="78" id="sc9-rN-fuZ"/>
                         <constraint firstItem="TsG-Fe-OmG" firstAttribute="centerX" secondItem="U6M-vT-tym" secondAttribute="centerX" id="uxK-Vk-b2l"/>

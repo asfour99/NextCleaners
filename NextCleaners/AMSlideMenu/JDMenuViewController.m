@@ -85,7 +85,7 @@
             {
                 cell = (JDMenuTableCell *)currentobject;
                 //                cell.accessoryType=UITableViewCellAccessoryNone;
-                //                cell.selectionStyle = UITableViewCellSelectionStyleGray;
+                                cell.selectionStyle = UITableViewCellSelectionStyleNone;
                 break;
             }
         }

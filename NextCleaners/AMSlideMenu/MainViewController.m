@@ -51,22 +51,22 @@
     
     _repeatBtn.layer.borderColor=[[UIColor colorWithRed:107.0/255.0f green:61/255.0f blue:160/255.0f alpha:1.0]CGColor];
     _repeatBtn.layer.borderWidth=1.0f;
-    _repeatBtn.layer.cornerRadius=4.0f;
+    _repeatBtn.layer.cornerRadius=8.0f;
     _repeatBtn.layer.masksToBounds=YES;
     
     _placeOrder.layer.borderColor=[[UIColor colorWithRed:107.0/255.0f green:61/255.0f blue:160/255.0f alpha:1.0]CGColor];
     _placeOrder.layer.borderWidth=1.0f;
-    _placeOrder.layer.cornerRadius=4.0f;
+    _placeOrder.layer.cornerRadius=8.0f;
     _placeOrder.layer.masksToBounds=YES;
     
     _referFriendBtn.layer.borderColor=[[UIColor colorWithRed:107.0/255.0f green:61/255.0f blue:160/255.0f alpha:1.0]CGColor];
     _referFriendBtn.layer.borderWidth=1.0f;
-    _referFriendBtn.layer.cornerRadius=4.0f;
+    _referFriendBtn.layer.cornerRadius=8.0f;
     _referFriendBtn.layer.masksToBounds=YES;
     
     _preferencesBtn.layer.borderColor=[[UIColor colorWithRed:122.0/255.0f green:192/255.0f blue:66/255.0f alpha:1.0]CGColor];
     _preferencesBtn.layer.borderWidth=1.0f;
-    _preferencesBtn.layer.cornerRadius=4.0f;
+    _preferencesBtn.layer.cornerRadius=8.0f;
     _preferencesBtn.layer.masksToBounds=YES;
     
     timeslotArray=[[NSMutableArray alloc]init];
