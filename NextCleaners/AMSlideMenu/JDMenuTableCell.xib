@@ -20,7 +20,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="71"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NzL-sE-5JQ">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Order.png" translatesAutoresizingMaskIntoConstraints="NO" id="NzL-sE-5JQ">
                         <rect key="frame" x="29" y="16" width="38" height="38"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="38" id="aDd-07-p6e"/>
@@ -52,4 +52,7 @@
             <point key="canvasLocation" x="218" y="228"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="Order.png" width="32" height="24"/>
+    </resources>
 </document>
