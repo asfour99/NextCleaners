@@ -34,14 +34,14 @@
     
     _segment1.layer.borderColor=[[UIColor colorWithRed:107.0/255.0f green:61/255.0f blue:160/255.0f alpha:1.0]CGColor];
     _segment1.layer.borderWidth=2.0f;
-    _segment1.layer.cornerRadius=4.0f;
+    _segment1.layer.cornerRadius=8.0f;
     _segment1.layer.masksToBounds=YES;
     
     [_segment1 setTintColor:[UIColor colorWithRed:107.0/255.0f green:61/255.0f blue:160/255.0f alpha:1.0]];
     
     _segment2.layer.borderColor=[[UIColor colorWithRed:107.0/255.0f green:61/255.0f blue:160/255.0f alpha:1.0]CGColor];
     _segment2.layer.borderWidth=2.0f;
-    _segment2.layer.cornerRadius=4.0f;
+    _segment2.layer.cornerRadius=8.0f;
     _segment2.layer.masksToBounds=YES;
     
     [_segment2 setTintColor:[UIColor colorWithRed:107.0/255.0f green:61/255.0f blue:160/255.0f alpha:1.0]];
@@ -49,14 +49,14 @@
     
     _segment3.layer.borderColor=[[UIColor colorWithRed:107.0/255.0f green:61/255.0f blue:160/255.0f alpha:1.0]CGColor];
     _segment3.layer.borderWidth=2.0f;
-    _segment3.layer.cornerRadius=4.0f;
+    _segment3.layer.cornerRadius=8.0f;
     _segment3.layer.masksToBounds=YES;
     
     [_segment3 setTintColor:[UIColor colorWithRed:107.0/255.0f green:61/255.0f blue:160/255.0f alpha:1.0]];
     
     _segment4.layer.borderColor=[[UIColor colorWithRed:107.0/255.0f green:61/255.0f blue:160/255.0f alpha:1.0]CGColor];
     _segment4.layer.borderWidth=2.0f;
-    _segment4.layer.cornerRadius=4.0f;
+    _segment4.layer.cornerRadius=8.0f;
     _segment4.layer.masksToBounds=YES;
     
     [_segment4 setTintColor:[UIColor colorWithRed:107.0/255.0f green:61/255.0f blue:160/255.0f alpha:1.0]];
@@ -64,7 +64,7 @@
     
     _specialInstructionView.layer.borderColor=[[UIColor colorWithRed:107.0/255.0f green:61/255.0f blue:160/255.0f alpha:1.0]CGColor];
     _specialInstructionView.layer.borderWidth=2.0f;
-    _specialInstructionView.layer.cornerRadius=4.0f;
+    _specialInstructionView.layer.cornerRadius=8.0f;
     _specialInstructionView.layer.masksToBounds=YES;
 
 }

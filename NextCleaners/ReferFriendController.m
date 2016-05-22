@@ -22,7 +22,7 @@
     
     _referfriendBtn.layer.borderColor=[[UIColor clearColor]CGColor];
     _referfriendBtn.layer.borderWidth=1.0f;
-    _referfriendBtn.layer.cornerRadius=4.0f;
+    _referfriendBtn.layer.cornerRadius=8.0f;
     _referfriendBtn.layer.masksToBounds=YES;
 
 }

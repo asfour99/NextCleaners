@@ -15,6 +15,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ReferFriendController">
             <connections>
+                <outlet property="referfriendBtn" destination="hgL-E7-i0j" id="f70-fk-uxX"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -47,11 +48,17 @@
                     <state key="normal" image="Menu_Nav_icon.png"/>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ReferSymbol.png" translatesAutoresizingMaskIntoConstraints="NO" id="ziS-wD-pFU">
-                    <rect key="frame" x="67" y="147" width="240" height="128"/>
+                    <rect key="frame" x="67" y="111" width="240" height="128"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="128" id="GcZ-Ia-lDB"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="IVZ-Oh-QLg"/>
                         <constraint firstAttribute="width" constant="240" id="k3E-EX-AEB"/>
                     </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="IVZ-Oh-QLg"/>
+                        </mask>
+                    </variation>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hgL-E7-i0j">
                     <rect key="frame" x="15" y="569" width="346" height="40"/>
@@ -68,7 +75,7 @@
                 <constraint firstItem="hgL-E7-i0j" firstAttribute="centerX" secondItem="2zK-03-uL4" secondAttribute="centerX" id="IeP-Gr-hmL"/>
                 <constraint firstItem="hgL-E7-i0j" firstAttribute="leading" secondItem="yBD-54-hOs" secondAttribute="leading" id="QTR-BX-Wtd"/>
                 <constraint firstAttribute="trailing" secondItem="2zK-03-uL4" secondAttribute="trailing" id="Ss5-wx-iea"/>
-                <constraint firstItem="ziS-wD-pFU" firstAttribute="top" secondItem="2zK-03-uL4" secondAttribute="bottom" constant="76" id="aHo-TJ-d34"/>
+                <constraint firstItem="ziS-wD-pFU" firstAttribute="top" secondItem="2zK-03-uL4" secondAttribute="bottom" constant="40" id="aHo-TJ-d34"/>
                 <constraint firstItem="9y1-ZB-cqM" firstAttribute="leading" secondItem="yBD-54-hOs" secondAttribute="trailing" constant="73" id="aVk-HO-KLr"/>
                 <constraint firstItem="ziS-wD-pFU" firstAttribute="centerX" secondItem="2zK-03-uL4" secondAttribute="centerX" id="ayd-rs-h9q"/>
                 <constraint firstItem="9y1-ZB-cqM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="34" id="bIV-vq-iXU"/>
@@ -84,6 +91,7 @@
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <variation key="default">
                 <mask key="constraints">
+                    <exclude reference="aVk-HO-KLr"/>
                     <exclude reference="ziP-QT-H7R"/>
                 </mask>
             </variation>
