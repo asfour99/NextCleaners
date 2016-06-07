@@ -6,11 +6,14 @@
 //  Copyright (c) 2013 Markus Emrich. All rights reserved.
 //
 
-#import "UIViewController+JDSideMenu.h"
+//#import "UIViewController+JDSideMenu.h"
 
 #import "JDMenuViewController.h"
 #import "MainViewController.h"
 #import "JDMenuTableCell.h"
+#import "OrderHistoryController.h"
+//#import "SideMenuViewController.h"
+#import "MFSideMenu.h"
 
 @interface JDMenuViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *menutableView;
@@ -18,7 +21,7 @@
 @property(retain,nonatomic) NSMutableArray *menuItemsImageArray;
 
 
-- (IBAction)switchController:(id)sender;
+//- (IBAction)switchController:(id)sender;
 @end
 
 @implementation JDMenuViewController
@@ -136,28 +139,51 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //CGFloat randomHue = (arc4random()%256/256.0);
-    MainViewController *viewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
+    if (indexPath.row==0)
+    {
+        MainViewController *demoController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
+       
+        
+        UINavigationController *navigationController = self.menuContainerViewController.centerViewController;
+        NSArray *controllers = [NSArray arrayWithObject:demoController];
+        navigationController.viewControllers = controllers;
+        [self.menuContainerViewController setMenuState:MFSideMenuStateClosed];
+
+//        MainViewController *viewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
+//        
+//        [self.sideMenuController setContentController:viewController animated:YES];
+
+    }
+    else if (indexPath.row==2)
+    {
+        OrderHistoryController *viewController = [[OrderHistoryController alloc] initWithNibName:@"OrderHistoryController" bundle:nil];
+        
+        UINavigationController *navigationController = self.menuContainerViewController.centerViewController;
+        NSArray *controllers = [NSArray arrayWithObject:viewController];
+        navigationController.viewControllers = controllers;
+        [self.menuContainerViewController setMenuState:MFSideMenuStateClosed];
+        
+        
+        
+        
+        //[self.sideMenuController setContentController:viewController animated:YES];
+
+    }
+}
+
+
+
+
+//- (IBAction)switchController:(id)sender;
+//{
+//    CGFloat randomHue = (arc4random()%256/256.0);
+//    MainViewController *viewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
 //    viewController.view.backgroundColor = [UIColor colorWithHue:randomHue saturation:1.0 brightness:1.0 alpha:1.0];
-    //viewController.title = [NSString stringWithFormat: @"Hue: %.2f", randomHue];
-    
-    //    UIViewController *contentController = [[UINavigationController alloc]
-    //                                           initWithRootViewController:viewController];
-    [self.sideMenuController setContentController:viewController animated:YES];
-}
-
-
-
-- (IBAction)switchController:(id)sender;
-{
-    CGFloat randomHue = (arc4random()%256/256.0);
-    MainViewController *viewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
-    viewController.view.backgroundColor = [UIColor colorWithHue:randomHue saturation:1.0 brightness:1.0 alpha:1.0];
-    viewController.title = [NSString stringWithFormat: @"Hue: %.2f", randomHue];
-    
-//    UIViewController *contentController = [[UINavigationController alloc]
-//                                           initWithRootViewController:viewController];
-    [self.sideMenuController setContentController:viewController animated:YES];
-}
+//    viewController.title = [NSString stringWithFormat: @"Hue: %.2f", randomHue];
+//    
+////    UIViewController *contentController = [[UINavigationController alloc]
+////                                           initWithRootViewController:viewController];
+//    [self.sideMenuController setContentController:viewController animated:YES];
+//}
 
 @end

@@ -64,6 +64,8 @@ const CGFloat JDSideMenuDefaultCloseAnimationTime = 0.3;
     // setup gesture recognizers
     self.tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapRecognized:)];
     self.panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panRecognized:)];
+    
+    //[_tapRecognizer setCancelsTouchesInView:NO];
     [self.containerView addGestureRecognizer:self.tapRecognizer];
     [self.containerView addGestureRecognizer:self.panRecognizer];
 }
@@ -183,6 +185,7 @@ const CGFloat JDSideMenuDefaultCloseAnimationTime = 0.3;
     [self showMenuAnimated:animated duration:JDSideMenuDefaultOpenAnimationTime
            initialVelocity:1.0];
 }
+
 
 - (void)showMenuAnimated:(BOOL)animated duration:(CGFloat)duration
          initialVelocity:(CGFloat)velocity;
