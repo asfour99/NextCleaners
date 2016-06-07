@@ -10,9 +10,9 @@
 #import "FPPopoverView.h"
 #import "ARCMacros.h"
 
-#define FP_POPOVER_ARROW_HEIGHT 20.0
+#define FP_POPOVER_ARROW_HEIGHT 00.0
 #define FP_POPOVER_ARROW_BASE 20.0
-#define FP_POPOVER_RADIUS 10.0
+#define FP_POPOVER_RADIUS 8.0
 
 //iVars
 @interface FPPopoverView()
@@ -457,8 +457,8 @@
     if(_arrowDirection == FPPopoverArrowDirectionUp)
     {
         contentRect.origin = CGPointMake(10, 60);  
-        contentRect.size = CGSizeMake(self.bounds.size.width-20, self.bounds.size.height-70);
-        _titleLabel.frame = CGRectMake(10, 30, self.bounds.size.width-20, 20);    
+        contentRect.size = CGSizeMake(self.bounds.size.width, self.bounds.size.height-70);
+        _titleLabel.frame = CGRectMake(10, 30, self.bounds.size.width-20, 20);
 		if (self.title==nil || self.title.length==0) {
 			contentRect.origin = CGPointMake(10, 30);
 			contentRect.size = CGSizeMake(self.bounds.size.width-20, self.bounds.size.height-40);
