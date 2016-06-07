@@ -8,6 +8,9 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <mutableArray key="Montserrat-Bold.ttf">
+            <string>Montserrat-Bold</string>
+        </mutableArray>
         <mutableArray key="montserrat-light.ttf">
             <string>Montserrat-Light</string>
             <string>Montserrat-Light</string>
@@ -23,10 +26,13 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CardDetailsController">
             <connections>
                 <outlet property="cardBtn" destination="7uS-xo-DfL" id="kOL-Km-3pn"/>
+                <outlet property="cardIOView" destination="G2w-pS-F18" id="OgI-mu-JL7"/>
                 <outlet property="cardNo_Field" destination="lN7-ym-4Vl" id="JoF-b6-U05"/>
                 <outlet property="cvc_Field" destination="3mN-vw-Axx" id="cA7-Fc-b0N"/>
+                <outlet property="mainPicker" destination="y26-gQ-68x" id="JOl-Ns-CKz"/>
                 <outlet property="monthBtn" destination="ftJ-Pu-XWv" id="lFd-VB-Ka4"/>
                 <outlet property="nextBtn" destination="kCH-C6-dPq" id="wMD-zk-oqO"/>
+                <outlet property="pickerMainView" destination="YXJ-5g-1C1" id="WP0-nk-vlL"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="yearBtn" destination="a8C-Gh-z7L" id="oaC-Wp-UGY"/>
                 <outlet property="zipCode_Field" destination="ZUP-Da-SKC" id="4Ly-cO-ddx"/>
@@ -74,7 +80,7 @@
                     </constraints>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="17"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="DeU-NF-sRu"/>
                     </connections>
@@ -90,7 +96,7 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ftJ-Pu-XWv">
+                <button opaque="NO" tag="111" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ftJ-Pu-XWv">
                     <rect key="frame" x="48" y="180" width="134" height="36"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -101,8 +107,11 @@
                     <state key="normal" title="Month">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="datePickerAction:" destination="-1" eventType="touchUpInside" id="sdk-HT-IvG"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a8C-Gh-z7L">
+                <button opaque="NO" tag="222" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a8C-Gh-z7L">
                     <rect key="frame" x="192" y="180" width="134" height="36"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -113,6 +122,9 @@
                     <state key="normal" title="Year">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="datePickerAction:" destination="-1" eventType="touchUpInside" id="3Y9-ct-cYT"/>
+                    </connections>
                 </button>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3mN-vw-Axx">
                     <rect key="frame" x="48" y="225" width="134" height="36"/>
@@ -122,14 +134,20 @@
                     </constraints>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="17"/>
-                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="gUf-Eb-jJ2"/>
+                    </connections>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZUP-Da-SKC">
                     <rect key="frame" x="192" y="225" width="134" height="36"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="17"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="wd7-zJ-GcR"/>
+                    </connections>
                 </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5b7-cx-XeK">
                     <rect key="frame" x="166" y="286" width="42" height="30"/>
@@ -144,6 +162,9 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7uS-xo-DfL">
                     <rect key="frame" x="127" y="340" width="120" height="76"/>
                     <state key="normal" image="Card_iPh.png"/>
+                    <connections>
+                        <action selector="scanCard:" destination="-1" eventType="touchUpInside" id="CEe-RV-8Ry"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan card with your camera" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xO1-uI-AV4">
                     <rect key="frame" x="15" y="434" width="352" height="30"/>
@@ -184,6 +205,47 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YXJ-5g-1C1">
+                    <rect key="frame" x="0.0" y="442" width="375" height="225"/>
+                    <subviews>
+                        <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y26-gQ-68x">
+                            <rect key="frame" x="0.0" y="50" width="375" height="175"/>
+                            <color key="backgroundColor" red="0.41960784309999999" green="0.23921568630000001" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="oZa-el-62L"/>
+                                <outlet property="delegate" destination="-1" id="Cwq-Nc-v3H"/>
+                            </connections>
+                        </pickerView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JoD-JL-nLm">
+                            <rect key="frame" x="8" y="2" width="76" height="48"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="76" id="kOI-lt-ze3"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="16"/>
+                            <state key="normal" title="DONE">
+                                <color key="titleColor" red="0.47843137250000001" green="0.75294117650000003" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="pickerDoneBtnAction:" destination="-1" eventType="touchUpInside" id="SUl-a3-XfF"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="y26-gQ-68x" firstAttribute="top" secondItem="YXJ-5g-1C1" secondAttribute="top" constant="50" id="433-Fn-kQJ"/>
+                        <constraint firstItem="JoD-JL-nLm" firstAttribute="leading" secondItem="YXJ-5g-1C1" secondAttribute="leadingMargin" id="Fav-ft-2Ip"/>
+                        <constraint firstItem="y26-gQ-68x" firstAttribute="top" secondItem="JoD-JL-nLm" secondAttribute="bottom" id="I9T-3g-Muk"/>
+                        <constraint firstAttribute="height" constant="225" id="LkF-Wq-fAs"/>
+                        <constraint firstAttribute="trailing" secondItem="y26-gQ-68x" secondAttribute="trailing" id="POl-Dv-6G8"/>
+                        <constraint firstItem="y26-gQ-68x" firstAttribute="leading" secondItem="YXJ-5g-1C1" secondAttribute="leading" id="Tlc-7l-qGP"/>
+                        <constraint firstAttribute="bottom" secondItem="y26-gQ-68x" secondAttribute="bottom" id="XM3-a0-C9F"/>
+                        <constraint firstItem="JoD-JL-nLm" firstAttribute="top" secondItem="YXJ-5g-1C1" secondAttribute="top" constant="2" id="q7X-5x-cbC"/>
+                    </constraints>
+                </view>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G2w-pS-F18" customClass="CardIOView">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -202,6 +264,9 @@
                 <constraint firstItem="a8C-Gh-z7L" firstAttribute="top" secondItem="lN7-ym-4Vl" secondAttribute="bottom" constant="9" id="Flj-JN-Jqd"/>
                 <constraint firstItem="a8C-Gh-z7L" firstAttribute="leading" secondItem="XV2-JT-k0Q" secondAttribute="trailing" id="GVO-Ke-xQ8"/>
                 <constraint firstItem="rzb-qK-CmW" firstAttribute="top" secondItem="xO1-uI-AV4" secondAttribute="bottom" id="HHt-Of-EuG"/>
+                <constraint firstItem="YXJ-5g-1C1" firstAttribute="trailing" secondItem="4Cs-c5-QK6" secondAttribute="trailing" id="HNL-Mq-7Jy"/>
+                <constraint firstItem="G2w-pS-F18" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Jsd-sQ-bMf"/>
+                <constraint firstItem="YXJ-5g-1C1" firstAttribute="leading" secondItem="4Cs-c5-QK6" secondAttribute="leading" id="KEF-3z-VD2"/>
                 <constraint firstItem="SFz-7Y-fhs" firstAttribute="centerY" secondItem="2IQ-9U-vT2" secondAttribute="centerY" id="LVu-PH-r34"/>
                 <constraint firstAttribute="trailing" secondItem="lN7-ym-4Vl" secondAttribute="trailing" constant="49" id="NdL-aZ-1Ai"/>
                 <constraint firstItem="5b7-cx-XeK" firstAttribute="leading" secondItem="3Dm-d9-2XP" secondAttribute="trailing" constant="8" symbolic="YES" id="P3H-Dm-pgf"/>
@@ -226,11 +291,13 @@
                 <constraint firstItem="XV2-JT-k0Q" firstAttribute="top" secondItem="lN7-ym-4Vl" secondAttribute="bottom" constant="9" id="d8d-bu-pZj"/>
                 <constraint firstItem="a8C-Gh-z7L" firstAttribute="top" secondItem="XV2-JT-k0Q" secondAttribute="top" id="djv-t6-0eR"/>
                 <constraint firstItem="5b7-cx-XeK" firstAttribute="centerX" secondItem="XV2-JT-k0Q" secondAttribute="centerX" id="flG-lq-Eze"/>
+                <constraint firstItem="YXJ-5g-1C1" firstAttribute="bottom" secondItem="UA7-W1-CTa" secondAttribute="bottom" id="gQi-Xg-Un7"/>
                 <constraint firstItem="lN7-ym-4Vl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="48" id="ga1-AN-s4S"/>
                 <constraint firstItem="3mN-vw-Axx" firstAttribute="top" secondItem="ftJ-Pu-XWv" secondAttribute="bottom" constant="9" id="h7d-SF-7Ic"/>
                 <constraint firstItem="lN7-ym-4Vl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="48" id="icS-X2-a24"/>
                 <constraint firstAttribute="trailing" secondItem="kCH-C6-dPq" secondAttribute="trailing" constant="33" id="ie3-nt-0x4"/>
                 <constraint firstItem="xO1-uI-AV4" firstAttribute="leading" secondItem="2IQ-9U-vT2" secondAttribute="leading" id="igT-yx-1N6"/>
+                <constraint firstItem="G2w-pS-F18" firstAttribute="leading" secondItem="YXJ-5g-1C1" secondAttribute="leading" id="isU-vw-XgU"/>
                 <constraint firstAttribute="trailing" secondItem="UA7-W1-CTa" secondAttribute="trailing" id="kjM-Da-UaE"/>
                 <constraint firstItem="3Dm-d9-2XP" firstAttribute="leading" secondItem="3mN-vw-Axx" secondAttribute="leading" id="l6z-cj-o47"/>
                 <constraint firstItem="3Dm-d9-2XP" firstAttribute="firstBaseline" secondItem="63W-Pk-8PZ" secondAttribute="firstBaseline" id="qBd-KN-s4P"/>
@@ -243,7 +310,9 @@
                 <constraint firstItem="a8C-Gh-z7L" firstAttribute="baseline" secondItem="ftJ-Pu-XWv" secondAttribute="firstBaseline" id="sL4-SB-Ha6"/>
                 <constraint firstItem="ftJ-Pu-XWv" firstAttribute="leading" secondItem="lN7-ym-4Vl" secondAttribute="leading" id="tJJ-Eu-rda"/>
                 <constraint firstItem="63W-Pk-8PZ" firstAttribute="leading" secondItem="5b7-cx-XeK" secondAttribute="trailing" constant="8" symbolic="YES" id="tyy-St-M0R"/>
+                <constraint firstItem="G2w-pS-F18" firstAttribute="bottom" secondItem="YXJ-5g-1C1" secondAttribute="bottom" id="uw0-Vk-HHI"/>
                 <constraint firstItem="4Cs-c5-QK6" firstAttribute="top" secondItem="2IQ-9U-vT2" secondAttribute="bottom" constant="8" symbolic="YES" id="v8h-i8-126"/>
+                <constraint firstItem="G2w-pS-F18" firstAttribute="trailing" secondItem="4Cs-c5-QK6" secondAttribute="trailing" id="wX1-Fo-vS4"/>
                 <constraint firstItem="2IQ-9U-vT2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="xme-LR-9q8"/>
                 <constraint firstItem="UA7-W1-CTa" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="-10" id="yg9-On-gYE"/>
             </constraints>

@@ -9,6 +9,7 @@
 #import "SignUpController.h"
 #import "AddressController.h"
 #import "CardDetailsController.h"
+#import "APIKeys.h"
 
 static const CGFloat KEYBOARD_ANIMATION_DURATION =0.3;
 static const CGFloat MINIMUM_SCROLL_FRACTION = 0.2;
@@ -32,6 +33,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 @end
 
 @implementation SignUpController
+@synthesize HUD;
 
 
 - (void)viewDidLoad {
@@ -93,15 +95,51 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     _facebookBtn.layer.masksToBounds=YES;
     _facebookBtn.layer.borderColor=[[UIColor clearColor]CGColor];
     _facebookBtn.layer.borderWidth= 1.0f;
-
-}
--(IBAction)nextBtnPressed:(id)sender
-{
-    AddressController *loginCon=[[AddressController alloc]initWithNibName:@"AddressController" bundle:nil];
-    [self.navigationController pushViewController:loginCon animated:YES];
-
     
+    [self ActivityBar];
+    
+    UIToolbar *keyboardDoneButtonView = [[UIToolbar alloc] init];
+    [keyboardDoneButtonView sizeToFit];
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done"
+                                                                   style:UIBarButtonItemStylePlain target:self
+                                                                  action:@selector(doneClicked:)];
+    [keyboardDoneButtonView setItems:[NSArray arrayWithObjects:doneButton, nil]];
+    _phone_Field.inputAccessoryView = keyboardDoneButtonView;
+
+
 }
+- (IBAction)doneClicked:(id)sender
+{
+    NSLog(@"Done Clicked.");
+    [self.view endEditing:YES];
+}
+
+//-(IBAction)nextBtnPressed:(id)sender
+//{
+//    AddressController *loginCon=[[AddressController alloc]initWithNibName:@"AddressController" bundle:nil];
+//    [self.navigationController pushViewController:loginCon animated:YES];
+//
+//    
+//}
+
+-(void)ActivityBar
+{
+    HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+    [self.navigationController.view addSubview:HUD];
+    
+    HUD.dimBackground = YES;
+    
+    
+    // Regiser for HUD callbacks so we can remove it from the window at the right time
+    HUD.delegate = self;
+    
+    
+    
+    // Show the HUD while the provided method executes in a new thread
+    
+    //[HUD showWhileExecuting:@selector(showLoder) onTarget:self withObject:nil animated:YES];
+}
+
 -(IBAction)cancelBtnPressed:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
@@ -109,8 +147,184 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 
 -(IBAction)signUpBtnPressed:(id)sender
 {
-    CardDetailsController *loginCon=[[CardDetailsController alloc]initWithNibName:@"CardDetailsController" bundle:nil];
-    [self.navigationController pushViewController:loginCon animated:YES];
+    BOOL firstName_Bool=FALSE;
+    BOOL lastName_Bool=FALSE;
+    BOOL email_Bool=FALSE;
+    BOOL phone_Bool=FALSE;
+    BOOL password_Bool=FALSE;
+    
+    if (_firstName_Field.text.length==0)
+    {
+        firstName_Bool=TRUE;
+    }
+    if (_lastName_Field.text.length==0)
+    {
+        lastName_Bool=TRUE;
+    }
+    if (_emailId_Field.text.length==0)
+    {
+        email_Bool=TRUE;
+    }
+    if (_phone_Field.text.length==0)
+    {
+        phone_Bool=TRUE;
+    }
+    if (_password_Field.text.length==0)
+    {
+        password_Bool=TRUE;
+    }
+    if (_phone_Field.text.length!=10)
+    {
+        phone_Bool=TRUE;
+    }
+    if (_password_Field.text.length<6) {
+        password_Bool=TRUE;
+    }
+    
+    if (firstName_Bool==FALSE&& lastName_Bool==FALSE&&email_Bool==FALSE&&phone_Bool==FALSE&&password_Bool==FALSE) {
+        [_firstName_Field resignFirstResponder];
+        [_lastName_Field resignFirstResponder];
+        [_emailId_Field resignFirstResponder];
+        [_phone_Field resignFirstResponder];
+        [_password_Field resignFirstResponder];
+        
+        
+        APIHandler *apiHandler = [[APIHandler alloc] init] ;
+        apiHandler.delegate = self ;
+        [HUD show:YES];
+        //[apiHandler retrievebookingapi:methodname tag:TAG_FLIGHT_SHEDULE_API pnrNo:@"" lastname:@""];
+        [apiHandler signUpApiCall:@"" firstName:_firstName_Field.text lastName:_lastName_Field.text emailId:_emailId_Field.text phoneNum:_phone_Field.text password:_password_Field.text];
+        
+    }
+    else
+    {
+        if (firstName_Bool==TRUE)
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [HUD hide:YES];
+                
+                CGFloat titlewidth=[self findwidth:@"Please Enter FirstName" fonname:FONT_LIGHT fontsize:20];
+                
+                [FVCustomAlertView showDefaultErrorAlertOnView:self.view withTitle:@"Please Enter FirstName" widthofview:titlewidth];
+                [self performSelector:@selector(hideSuccessView) withObject:nil afterDelay:2.0];
+            });
+ 
+        }
+        else if (lastName_Bool==TRUE)
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [HUD hide:YES];
+                
+                CGFloat titlewidth=[self findwidth:@"Please Enter LastName" fonname:FONT_LIGHT fontsize:20];
+                
+                [FVCustomAlertView showDefaultErrorAlertOnView:self.view withTitle:@"Please Enter LastName" widthofview:titlewidth];
+                [self performSelector:@selector(hideSuccessView) withObject:nil afterDelay:2.0];
+            });
+
+        }
+        else if (email_Bool==TRUE)
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [HUD hide:YES];
+                
+                CGFloat titlewidth=[self findwidth:@"Please Enter EmailID" fonname:FONT_LIGHT fontsize:20];
+                
+                [FVCustomAlertView showDefaultErrorAlertOnView:self.view withTitle:@"Please Enter EmailID" widthofview:titlewidth];
+                [self performSelector:@selector(hideSuccessView) withObject:nil afterDelay:2.0];
+            });
+
+        }
+        else if (phone_Bool==TRUE)
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [HUD hide:YES];
+                
+                CGFloat titlewidth=[self findwidth:@"Phone Number should be 10 digit" fonname:FONT_LIGHT fontsize:20];
+                
+                [FVCustomAlertView showDefaultErrorAlertOnView:self.view withTitle:@"Phone Number should be 10 digit" widthofview:titlewidth];
+                [self performSelector:@selector(hideSuccessView) withObject:nil afterDelay:2.0];
+            });
+
+        }
+        else if (password_Bool==TRUE)
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [HUD hide:YES];
+                
+                CGFloat titlewidth=[self findwidth:@"Password should be geater than 6 digit" fonname:FONT_LIGHT fontsize:20];
+                
+                [FVCustomAlertView showDefaultErrorAlertOnView:self.view withTitle:@"Password should be geater than 6 digit" widthofview:titlewidth];
+                [self performSelector:@selector(hideSuccessView) withObject:nil afterDelay:2.0];
+            });
+
+        }
+        else
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [HUD hide:YES];
+                
+                CGFloat titlewidth=[self findwidth:@"Please check all fields" fonname:FONT_LIGHT fontsize:20];
+                
+                [FVCustomAlertView showDefaultErrorAlertOnView:self.view withTitle:@"Please check all fields" widthofview:titlewidth];
+                [self performSelector:@selector(hideSuccessView) withObject:nil afterDelay:2.0];
+            });
+
+        }
+        
+
+        
+    }
+    
+    
+    
+}
+-(CGFloat)findwidth:(NSString *)textname fonname:(NSString*)fontname fontsize:(float)fontsize
+{
+    return  ceil([textname sizeWithAttributes:@{NSFontAttributeName: [UIFont fontWithName:fontname size:fontsize]}].width);
+}
+-(void)hideSuccessView
+{
+    [FVCustomAlertView hideAlertFromView:self.view fading:YES];
+    
+}
+-(void)requestSucceded:(id)sender dicData:(NSDictionary *)apiData
+{
+    NSString *successTag=[NSString stringWithFormat:@"%@",[apiData objectForKey:@"success"]];
+    NSString *userID=[NSString stringWithFormat:@"%@",[apiData objectForKey:@"id"]];
+     dispatch_async(dispatch_get_main_queue(), ^{
+    [HUD hide:YES];
+     });
+    
+    if ([successTag isEqualToString:@"1"])
+    {
+         dispatch_async(dispatch_get_main_queue(), ^{
+        CardDetailsController *loginCon=[[CardDetailsController alloc]initWithNibName:@"CardDetailsController" bundle:nil];
+        loginCon.userId=userID;
+        [self.navigationController pushViewController:loginCon animated:YES];
+         });
+    }
+    else
+    {
+         dispatch_async(dispatch_get_main_queue(), ^{
+        NSString *errorMsg=[NSString stringWithFormat:@"%@",[apiData objectForKey:@"message"]];
+        UIAlertView *error=[[UIAlertView alloc]initWithTitle:@"Error" message:errorMsg delegate:self cancelButtonTitle:@"" otherButtonTitles:nil, nil];
+        [error show];
+         });
+        
+    }
+    
+    
+    
+}
+-(void)requestFailed:(id)sender getval:(NSString*)errodesc
+{
+     dispatch_async(dispatch_get_main_queue(), ^{
+    [HUD hide:YES];
+     });
+    
+    NSString *errorMsg=[NSString stringWithFormat:@"%@",errodesc];
+    UIAlertView *error=[[UIAlertView alloc]initWithTitle:@"Error" message:errorMsg delegate:self cancelButtonTitle:@"" otherButtonTitles:nil, nil];
+    [error show];
     
 }
 - (BOOL)textFieldShouldReturn:(UITextField *)textField

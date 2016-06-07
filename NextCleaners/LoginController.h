@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "APIHandler.h"
+#import "FVCustomAlertView.h"
+#import "MBProgressHUD.h"
 
-@interface LoginController : UIViewController
+@interface LoginController : UIViewController<InternetHandlerDelegate,MBProgressHUDDelegate>
 {
     CGFloat animatedDistance;
 }
+@property(retain,nonatomic)MBProgressHUD *HUD;
 
 @end

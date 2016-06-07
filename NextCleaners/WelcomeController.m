@@ -11,6 +11,7 @@
 #import "APIKeys.h"
 #import "LoginController.h"
 #import "SignUpController.h"
+#import "APIHandler.h"
 
 
 
@@ -29,10 +30,13 @@
 
 - (void)viewDidLoad  {
     [super viewDidLoad];
+    
+    
     // Do any additional setup after loading the view from its nib.
     // pick a video from the documents directory
     self.navigationController.navigationBarHidden=TRUE;
     UIScrollView *scr=[[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    scr.userInteractionEnabled=TRUE;
     scr.tag = 1;
     //scr.autoresizingMask=UIViewAutoresizingNone;
    
@@ -63,6 +67,7 @@
     UIPageControl *pgCtr = [[UIPageControl alloc] initWithFrame:CGRectMake(0,logiBtn.frame.origin.y-50, SCREEN_WIDTH, 36)];
     [pgCtr setTag:12];
     pgCtr.numberOfPages=4;
+    pgCtr.userInteractionEnabled=TRUE;
     
     pgCtr.pageIndicatorTintColor = [UIColor whiteColor];
     pgCtr.currentPageIndicatorTintColor = [UIColor greenColor];
@@ -117,8 +122,10 @@
     // set the content size to 10 image width
     [scrMain setContentSize:CGSizeMake(scrMain.frame.size.width*4, SCREEN_HEIGHT)];
     // enable timer after each 2 seconds for scrolling.
-    [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(scrollingTimer) userInfo:nil repeats:YES];
+//    [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(scrollingTimer) userInfo:nil repeats:YES];
 }
+
+
 - (void)scrollingTimer {
     // access the scroll view with the tag
     UIScrollView *scrMain = (UIScrollView*) [self.view viewWithTag:1];
@@ -138,6 +145,8 @@
         pgCtr.currentPage=0;
     }
 }
+
+
 -(void)viewWillAppear:(BOOL)animated
 {
     self.navigationController.navigationBarHidden=TRUE;

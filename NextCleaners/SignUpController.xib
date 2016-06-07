@@ -71,7 +71,7 @@
                     </constraints>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="17"/>
-                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="uGC-WJ-wdT"/>
                     </connections>
@@ -84,7 +84,7 @@
                     </constraints>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="17"/>
-                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="Oke-Uz-EGq"/>
                     </connections>
@@ -96,7 +96,7 @@
                         <constraint firstAttribute="height" constant="36" id="acf-Ar-mtm"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="17"/>
-                    <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="done"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="rDB-Ak-pfu"/>
                     </connections>
@@ -108,7 +108,7 @@
                         <constraint firstAttribute="height" constant="36" id="zXF-wD-OdX"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="17"/>
-                    <textInputTraits key="textInputTraits" keyboardType="phonePad" returnKeyType="done"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="phonePad" returnKeyType="done"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="Qbx-VD-sUL"/>
                     </connections>
@@ -120,7 +120,7 @@
                         <constraint firstAttribute="height" constant="36" id="fd1-ZG-MnE"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="17"/>
-                    <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" secureTextEntry="YES"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="rVo-9d-hJC"/>
                     </connections>

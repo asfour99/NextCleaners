@@ -10,18 +10,19 @@
             <string>Montserrat-Light</string>
             <string>Montserrat-Light</string>
             <string>Montserrat-Light</string>
-            <string>Montserrat-Light</string>
         </mutableArray>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddressController">
             <connections>
-                <outlet property="address_Field" destination="wP0-mF-Fui" id="JF7-uR-iaF"/>
+                <outlet property="POPUPTBL" destination="IAZ-Lx-Z0f" id="vOg-ER-GwB"/>
+                <outlet property="_address_Field" destination="wP0-mF-Fui" id="Wpj-IT-nt5"/>
                 <outlet property="apartment_Field" destination="6UD-Dk-EWT" id="V5c-Fy-dfT"/>
                 <outlet property="doormanTypeBtn" destination="cwW-xR-0bd" id="eGK-2V-rFp"/>
                 <outlet property="locationTypeBtn" destination="OQo-UR-JqN" id="3w5-Bi-dnc"/>
-                <outlet property="mapView" destination="h8k-NY-IwD" id="mlR-Xy-L3w"/>
+                <outlet property="mapView" destination="h8k-NY-IwD" id="CjA-gs-zer"/>
                 <outlet property="note_txtView" destination="doE-eE-9kQ" id="VXM-Gi-cZE"/>
+                <outlet property="popupView" destination="x32-SQ-0ed" id="85e-FC-etl"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="zipCode_Field" destination="pOp-9j-af1" id="jVU-dk-lZF"/>
             </connections>
@@ -46,18 +47,18 @@
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BBy-wm-Mdw">
                     <rect key="frame" x="0.0" y="188" width="375" height="479"/>
                     <subviews>
-                        <button opaque="NO" tag="111" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OQo-UR-JqN">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OQo-UR-JqN">
                             <rect key="frame" x="48" y="25" width="278" height="36"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="36" id="ajD-U6-qLO"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="17"/>
-                            <state key="normal" title="Location">
+                            <inset key="imageEdgeInsets" minX="180" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="Location" image="DTriangleGreenInactive.png">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
-                                <action selector="despopover:" destination="-1" eventType="touchUpInside" id="9Gj-zn-g5B"/>
+                                <action selector="ddMenuShow:" destination="-1" eventType="touchUpInside" id="Wnz-m2-LHK"/>
                             </connections>
                         </button>
                         <button opaque="NO" tag="222" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cwW-xR-0bd">
@@ -80,10 +81,10 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="36" id="r02-NS-Noh"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="17"/>
+                            <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="14"/>
                             <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             <connections>
-                                <outlet property="delegate" destination="-1" id="kgv-SZ-2LJ"/>
+                                <outlet property="delegate" destination="-1" id="NY5-2B-6Yt"/>
                             </connections>
                         </textField>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pmH-7v-As3">
@@ -125,6 +126,7 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="85" id="zdT-KD-NXX"/>
                             </constraints>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             <connections>
@@ -138,8 +140,34 @@
                                 <action selector="nextBtnPressed:" destination="-1" eventType="touchUpInside" id="DVh-vp-w86"/>
                             </connections>
                         </button>
+                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x32-SQ-0ed">
+                            <rect key="frame" x="48" y="56" width="278" height="182"/>
+                            <subviews>
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IAZ-Lx-Z0f">
+                                    <rect key="frame" x="2" y="0.0" width="274" height="182"/>
+                                    <color key="backgroundColor" red="0.41960784309999999" green="0.23921568630000001" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="8"/>
+                                    <color key="separatorColor" red="0.47843137250000001" green="0.75294117650000003" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <connections>
+                                        <outlet property="dataSource" destination="-1" id="OIN-gv-Ipe"/>
+                                        <outlet property="delegate" destination="-1" id="jGb-L4-hXm"/>
+                                    </connections>
+                                </tableView>
+                            </subviews>
+                            <color key="backgroundColor" red="0.41960784309999999" green="0.23921568630000001" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="182" id="21G-V0-KXI"/>
+                                <constraint firstItem="IAZ-Lx-Z0f" firstAttribute="top" secondItem="x32-SQ-0ed" secondAttribute="top" id="Xic-Vo-FEf"/>
+                                <constraint firstAttribute="trailing" secondItem="IAZ-Lx-Z0f" secondAttribute="trailing" constant="2" id="bXs-xl-qCG"/>
+                                <constraint firstAttribute="bottom" secondItem="IAZ-Lx-Z0f" secondAttribute="bottom" id="q1S-ow-ihs"/>
+                                <constraint firstItem="IAZ-Lx-Z0f" firstAttribute="leading" secondItem="x32-SQ-0ed" secondAttribute="leading" constant="2" id="sHP-Jw-K4A"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <constraints>
+                        <constraint firstItem="x32-SQ-0ed" firstAttribute="top" secondItem="OQo-UR-JqN" secondAttribute="bottom" constant="-5" id="1AY-E3-GtU"/>
                         <constraint firstItem="6UD-Dk-EWT" firstAttribute="top" secondItem="wP0-mF-Fui" secondAttribute="bottom" constant="9" id="1JU-tp-W87"/>
                         <constraint firstItem="pOp-9j-af1" firstAttribute="leading" secondItem="6UD-Dk-EWT" secondAttribute="trailing" constant="8" symbolic="YES" id="35b-TD-8SX"/>
                         <constraint firstItem="cwW-xR-0bd" firstAttribute="leading" secondItem="OQo-UR-JqN" secondAttribute="leading" id="5XA-r2-8ke"/>
@@ -147,6 +175,7 @@
                         <constraint firstItem="cwW-xR-0bd" firstAttribute="trailing" secondItem="OQo-UR-JqN" secondAttribute="trailing" id="Bg2-J0-rDJ"/>
                         <constraint firstAttribute="bottom" secondItem="cGa-8T-88B" secondAttribute="bottom" priority="250" constant="96" id="CU3-vo-7BO"/>
                         <constraint firstAttribute="bottom" secondItem="pOp-9j-af1" secondAttribute="bottom" constant="346" id="E1p-q5-KDF"/>
+                        <constraint firstItem="x32-SQ-0ed" firstAttribute="trailing" secondItem="wP0-mF-Fui" secondAttribute="trailing" id="E82-me-LHz"/>
                         <constraint firstItem="pOp-9j-af1" firstAttribute="baseline" secondItem="6UD-Dk-EWT" secondAttribute="baseline" id="FtS-t6-awP"/>
                         <constraint firstItem="cGa-8T-88B" firstAttribute="top" secondItem="doE-eE-9kQ" secondAttribute="bottom" constant="32" id="JPG-O9-zMz"/>
                         <constraint firstItem="6UD-Dk-EWT" firstAttribute="top" secondItem="pmH-7v-As3" secondAttribute="top" id="MUW-7A-aYd"/>
@@ -166,14 +195,17 @@
                         <constraint firstItem="OQo-UR-JqN" firstAttribute="top" secondItem="BBy-wm-Mdw" secondAttribute="top" constant="25" id="tRJ-xv-llG"/>
                         <constraint firstItem="pOp-9j-af1" firstAttribute="trailing" secondItem="wP0-mF-Fui" secondAttribute="trailing" id="tcd-7r-2qK"/>
                         <constraint firstItem="wP0-mF-Fui" firstAttribute="leading" secondItem="cwW-xR-0bd" secondAttribute="leading" id="ulI-V0-VaX"/>
+                        <constraint firstItem="cGa-8T-88B" firstAttribute="top" secondItem="x32-SQ-0ed" secondAttribute="bottom" constant="79" id="umB-Qd-d1H"/>
                         <constraint firstItem="wP0-mF-Fui" firstAttribute="trailing" secondItem="cwW-xR-0bd" secondAttribute="trailing" id="xQi-15-PmR"/>
                         <constraint firstItem="pmH-7v-As3" firstAttribute="centerX" secondItem="wP0-mF-Fui" secondAttribute="centerX" id="xhM-DZ-kWS"/>
                         <constraint firstItem="wP0-mF-Fui" firstAttribute="top" secondItem="cwW-xR-0bd" secondAttribute="bottom" constant="9" id="zgI-LR-6GP"/>
+                        <constraint firstItem="x32-SQ-0ed" firstAttribute="leading" secondItem="wP0-mF-Fui" secondAttribute="leading" id="zzE-WG-ygw"/>
                     </constraints>
                     <variation key="default">
                         <mask key="constraints">
                             <exclude reference="MWE-M6-cuj"/>
                             <exclude reference="E1p-q5-KDF"/>
+                            <exclude reference="umB-Qd-d1H"/>
                         </mask>
                     </variation>
                     <connections>
@@ -222,6 +254,7 @@
     <resources>
         <image name="BackBtnPurple.png" width="48" height="50"/>
         <image name="BlankBack_iPh.png" width="320" height="568"/>
+        <image name="DTriangleGreenInactive.png" width="26" height="26"/>
         <image name="NextBtn_iPh.png" width="142" height="56"/>
     </resources>
 </document>

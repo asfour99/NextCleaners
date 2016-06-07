@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <MediaPlayer/MediaPlayer.h>
+#import "APIHandler.h"
 
-@interface WelcomeController : UIViewController
+@interface WelcomeController : UIViewController<InternetHandlerDelegate>
 {
     MPMoviePlayerViewController *playercontroller ;
 }

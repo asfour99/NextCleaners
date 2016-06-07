@@ -27,6 +27,15 @@
 @"-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])"\
 
 
+#define MAIL_URL @"http://52.23.155.182:7574/"
+#define REGISTER_USER_URL @"api/user"
+#define LOGIN_USER_URL @"api/user/"
+#define ADDRESS_USER_URL @"api/Address"
+#define CARD_DETAILS_URL @"api/PaymentCard"
+
+//FONTS
+#define FONT_BOLD @"Montserrat-Bold"
+#define FONT_LIGHT @"montserrat-light"
 
 
 //PRODUCT DETAIL

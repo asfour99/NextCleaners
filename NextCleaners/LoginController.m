@@ -12,6 +12,14 @@
 #import "MainViewController.h"
 #import "JDSideMenu.h"
 #import "JDMenuViewController.h"
+#import "APIKeys.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+//#import "SideMenuViewController.h"
+#import "MFSideMenuContainerViewController.h"
+#import "AppDelegate.h"
+
+
 static const CGFloat KEYBOARD_ANIMATION_DURATION =0.3;
 static const CGFloat MINIMUM_SCROLL_FRACTION = 0.2;
 static const CGFloat MAXIMUM_SCROLL_FRACTION = 0.8;
@@ -29,6 +37,7 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
 @end
 
 @implementation LoginController
+@synthesize HUD;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -65,23 +74,182 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     _facebookBtn.layer.masksToBounds=YES;
     _facebookBtn.layer.borderColor=[[UIColor clearColor]CGColor];
     _facebookBtn.layer.borderWidth= 1.0f;
+    
+    
+    [self ActivityBar];
 }
+
+-(void)ActivityBar
+{
+    HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+    [self.navigationController.view addSubview:HUD];
+    
+    HUD.dimBackground = YES;
+    
+    
+    // Regiser for HUD callbacks so we can remove it from the window at the right time
+    HUD.delegate = self;
+    
+    
+    
+    // Show the HUD while the provided method executes in a new thread
+    
+    //[HUD showWhileExecuting:@selector(showLoder) onTarget:self withObject:nil animated:YES];
+}
+
 
 -(IBAction)cancelBtnPressed:(id)sender
 {
+    NSLog(@"%@",self.navigationController.viewControllers);
     [self.navigationController popViewControllerAnimated:YES];
 }
 -(IBAction)nextBtnPressed:(id)sender
 {
-    UIViewController *menuController = [[JDMenuViewController alloc] init];
-    MainViewController *mainVC = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
+//    UIViewController *menuController = [[JDMenuViewController alloc] init];
+//    MainViewController *mainVC = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
+//    
+//    //     UIViewController *navController = [[UINavigationController alloc] initWithRootViewController:mainVC];
+//    JDSideMenu *sideMenu = [[JDSideMenu alloc] initWithContentController:mainVC
+//                                                          menuController:menuController];
+//    [self.navigationController pushViewController:sideMenu animated:YES];
+
+    BOOL EMAIL_BOOL=FALSE;
+    BOOL PASSWORD_BOOL=FALSE;
+    if (_emailId_Field.text.length==0)
+    {
+        EMAIL_BOOL=TRUE;
+    }
+    if (_password_Field.text.length==0)
+    {
+        PASSWORD_BOOL=TRUE;
+    }
     
-    //     UIViewController *navController = [[UINavigationController alloc] initWithRootViewController:mainVC];
-    JDSideMenu *sideMenu = [[JDSideMenu alloc] initWithContentController:mainVC
-                                                          menuController:menuController];
-    [self.navigationController pushViewController:sideMenu animated:YES];
+    if (EMAIL_BOOL==FALSE && PASSWORD_BOOL==FALSE)
+    {
+        dispatch_async(dispatch_get_main_queue(), ^{
+        [HUD show:YES];
+        });
+        APIHandler *apiHandler = [[APIHandler alloc] init] ;
+        apiHandler.delegate = self ;
+        [apiHandler loginApiCall:_emailId_Field.text password:_password_Field.text];
+    }
+    else
+    {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            CGFloat titlewidth=[self findwidth:@"Please fill all fields properly." fonname:FONT_LIGHT fontsize:20];
+            
+            [FVCustomAlertView showDefaultErrorAlertOnView:self.view withTitle:@"Please fill all fields properly." widthofview:titlewidth];
+            [self performSelector:@selector(hideSuccessView) withObject:nil afterDelay:2.0];
+        });
+        
+    }
+    
+    
     
 }
+-(CGFloat)findwidth:(NSString *)textname fonname:(NSString*)fontname fontsize:(float)fontsize
+{
+    return  ceil([textname sizeWithAttributes:@{NSFontAttributeName: [UIFont fontWithName:fontname size:fontsize]}].width);
+}
+-(void)hideSuccessView
+{
+    [FVCustomAlertView hideAlertFromView:self.view fading:YES];
+    
+}
+//- (MainViewController *)demoController {
+//    return [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
+//}
+//
+//- (UINavigationController *)navigationController {
+//    return [[UINavigationController alloc]
+//            initWithRootViewController:[self demoController]];
+//}
+
+-(void)requestSucceded:(id)sender dicData:(NSDictionary *)apiData
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+    [HUD hide:YES];
+    });
+    NSString *successTag=[NSString stringWithFormat:@"%@",[apiData objectForKey:@"success"]];
+    
+    if ([successTag isEqualToString:@"1"])
+    {
+        
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+        MainViewController *mainVC = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
+            UINavigationController *navigationcontroller =[[UINavigationController alloc] initWithRootViewController:mainVC];
+        JDMenuViewController *leftMenuViewController = [[JDMenuViewController alloc] init];
+        //JDMenuViewController *rightMenuViewController = [[JDMenuViewController alloc] init];
+        MFSideMenuContainerViewController *container = [MFSideMenuContainerViewController
+                                                        containerWithCenterViewController:navigationcontroller
+                                                        leftMenuViewController:leftMenuViewController
+                                                        rightMenuViewController:nil];
+            AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+            [container setPanMode:MFSideMenuPanModeNone];
+
+            
+        appDelegate.window.rootViewController = container;
+        //[self.navigationController pushViewController:container animated:YES];
+        });
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            [HUD hide:YES];
+//        UIViewController *menuController = [[JDMenuViewController alloc] init];
+//        MainViewController *mainVC = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
+//        
+//        //     UIViewController *navController = [[UINavigationController alloc] initWithRootViewController:mainVC];
+//        JDSideMenu *sideMenu = [[JDSideMenu alloc] initWithContentController:mainVC
+//                                                              menuController:menuController];
+//        [self.navigationController pushViewController:sideMenu animated:YES];
+//        });
+    }
+    else
+    {
+        //[HUD hide:YES];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            
+            [HUD hide:YES];
+            CGFloat titlewidth=[self findwidth:[apiData objectForKey:@"message"] fonname:FONT_LIGHT fontsize:20];
+            
+            [FVCustomAlertView showDefaultErrorAlertOnView:self.view withTitle:[apiData objectForKey:@"message"] widthofview:titlewidth];
+            [self performSelector:@selector(hideSuccessView) withObject:nil afterDelay:2.0];
+            
+        });
+        
+
+//        NSString *errorMsg=[NSString stringWithFormat:@"%@",[apiData objectForKey:@"message"]];
+//        UIAlertView *error=[[UIAlertView alloc]initWithTitle:@"Error" message:errorMsg delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+//        [error show];
+        
+    }
+    
+    
+    
+}
+-(void)requestFailed:(id)sender getval:(NSString*)errodesc
+{
+//    [HUD hide:YES];
+//    NSString *errorMsg=[NSString stringWithFormat:@"%@",errodesc];
+//    UIAlertView *error=[[UIAlertView alloc]initWithTitle:@"Error" message:errorMsg delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+//    [error show];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        
+        [HUD hide:YES];
+        NSString *errorMsg=[NSString stringWithFormat:@"%@",errodesc];
+        CGFloat titlewidth=[self findwidth:errorMsg fonname:FONT_LIGHT fontsize:20];
+        
+        [FVCustomAlertView showDefaultErrorAlertOnView:self.view withTitle:errorMsg widthofview:titlewidth];
+        [self performSelector:@selector(hideSuccessView) withObject:nil afterDelay:2.0];
+        
+    });
+
+    
+}
+
 
 
 //-(void)textFieldDidBeginEditing:(UITextField *)textField
@@ -194,7 +362,70 @@ static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
     [UIView commitAnimations];
 }
 
+- (IBAction)loginWithFacebookAction:(id) sender {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        
+        [HUD show:YES];
+    });
+    FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
+    [login logOut];
+    [login
+     logInWithReadPermissions: @[@"public_profile", @"email", @"user_friends"]
+     fromViewController:self
+     handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+         if (error) {
+             dispatch_async(dispatch_get_main_queue(), ^{
+                 
+                 
+                 [HUD hide:YES];
+                 CGFloat titlewidth=[self findwidth:@"Something went wrong,Please try later." fonname:FONT_LIGHT fontsize:20];
+                 
+                 [FVCustomAlertView showDefaultErrorAlertOnView:self.view withTitle:@"Something went wrong,Please try later." widthofview:titlewidth];
+                 [self performSelector:@selector(hideSuccessView) withObject:nil afterDelay:2.0];
 
+             });
+             
+             NSLog(@"Process error");
+         } else if (result.isCancelled) {
+             NSLog(@"Cancelled");
+         } else {
+             NSLog(@"Logged in");
+             if ([result.grantedPermissions containsObject:@"public_profile"])
+             {
+                 
+                 NSLog(@"result is:%@",result);
+                 [self fetchUserInfo];
+             }
+         }
+     }];
+}
+-(void)fetchUserInfo
+{
+    if ([FBSDKAccessToken currentAccessToken])
+    {
+        NSLog(@"Token is available : %@",[[FBSDKAccessToken currentAccessToken]tokenString]);
+        //API CALLING
+        
+        APIHandler *apiHandler = [[APIHandler alloc] init] ;
+        apiHandler.delegate = self ;
+        [apiHandler loginApiCall:_emailId_Field.text password:@"FBTEMP123"];
+        
+        [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields": @"id, name, link, first_name, last_name, picture.type(large), email, birthday, bio ,location ,friends ,hometown , friendlists"}]
+         startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+             if (!error)
+             {
+                 NSLog(@"resultis:%@",result);
+             }
+             else
+             {
+                 NSLog(@"Error %@",error);
+             }
+         }];
+        
+    }
+    
+}
 
 
 

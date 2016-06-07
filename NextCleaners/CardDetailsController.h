@@ -7,10 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "APIHandler.h"
+#import "MBProgressHUD.h"
+#import "FVCustomAlertView.h"
+#import "CardIO.h"
 
-@interface CardDetailsController : UIViewController
+@interface CardDetailsController : UIViewController<InternetHandlerDelegate,MBProgressHUDDelegate,CardIOViewDelegate>
 {
     CGFloat animatedDistance;
+    NSString *userId;
 }
+@property(retain,nonatomic) NSString *userId;
+@property (retain,nonatomic) NSMutableArray *monthArray;
+@property (retain,nonatomic) NSMutableArray *yearArray;
+@property(retain,nonatomic)MBProgressHUD *HUD;
+
 
 @end

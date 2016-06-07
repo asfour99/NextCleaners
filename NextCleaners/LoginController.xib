@@ -80,6 +80,9 @@
                     <state key="normal" title="Login with Facebook">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="loginWithFacebookAction:" destination="-1" eventType="touchUpInside" id="npi-pb-Erc"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z2x-F5-ca5">
                     <rect key="frame" x="0.0" y="74" width="375" height="1"/>
@@ -95,7 +98,7 @@
                     <rect key="frame" x="15" y="20" width="46" height="46"/>
                     <state key="normal" image="BackButton_iPh.png"/>
                     <connections>
-                        <action selector="cancelBtnPressed:" destination="-1" eventType="touchUpInside" id="9rq-lg-Hkn"/>
+                        <action selector="cancelBtnPressed:" destination="-1" eventType="touchUpInside" id="hVE-r0-l5O"/>
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign In" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nL4-03-nVj">

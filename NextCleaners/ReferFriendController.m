@@ -7,6 +7,7 @@
 //
 
 #import "ReferFriendController.h"
+#import "MFSideMenu.h"
 
 @interface ReferFriendController ()
 
@@ -24,8 +25,60 @@
     _referfriendBtn.layer.borderWidth=1.0f;
     _referfriendBtn.layer.cornerRadius=8.0f;
     _referfriendBtn.layer.masksToBounds=YES;
+    [self setupMenuBarButtonItems];
 
 }
+- (void)setupMenuBarButtonItems {
+    self.navigationItem.rightBarButtonItem = [self rightMenuBarButtonItem];
+    if(self.menuContainerViewController.menuState == MFSideMenuStateClosed &&
+       ![[self.navigationController.viewControllers objectAtIndex:0] isEqual:self]) {
+        self.navigationItem.leftBarButtonItem = [self backBarButtonItem];
+    } else {
+        self.navigationItem.leftBarButtonItem = [self leftMenuBarButtonItem];
+    }
+}
+
+- (UIBarButtonItem *)leftMenuBarButtonItem {
+    return [[UIBarButtonItem alloc]
+            initWithImage:[UIImage imageNamed:@"menu-icon.png"] style:UIBarButtonItemStyleBordered
+            target:self
+            action:@selector(leftSideMenuButtonPressed:)];
+}
+
+- (UIBarButtonItem *)rightMenuBarButtonItem {
+    return [[UIBarButtonItem alloc]
+            initWithImage:[UIImage imageNamed:@""] style:UIBarButtonItemStyleBordered
+            target:self
+            action:@selector(rightSideMenuButtonPressed:)];
+}
+
+- (UIBarButtonItem *)backBarButtonItem {
+    return [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back-arrow"]
+                                            style:UIBarButtonItemStyleBordered
+                                           target:self
+                                           action:@selector(backButtonPressed:)];
+}
+
+
+#pragma mark -
+#pragma mark - UIBarButtonItem Callbacks
+
+- (void)backButtonPressed:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction) leftSideMenuButtonPressed:(id)sender {
+    [self.menuContainerViewController toggleLeftSideMenuCompletion:^{
+        [self setupMenuBarButtonItems];
+    }];
+}
+
+- (void)rightSideMenuButtonPressed:(id)sender {
+    [self.menuContainerViewController toggleRightSideMenuCompletion:^{
+        [self setupMenuBarButtonItems];
+    }];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

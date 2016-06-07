@@ -16,11 +16,13 @@
         <mutableArray key="montserrat-light.ttf">
             <string>Montserrat-Light</string>
             <string>Montserrat-Light</string>
+            <string>Montserrat-Light</string>
         </mutableArray>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PreferencesController">
             <connections>
+                <outlet property="savePrefernceBtn" destination="hOO-Lx-G2V" id="eE5-jE-ca4"/>
                 <outlet property="segment1" destination="Gpc-LN-Cu1" id="cKq-9Y-1Ru"/>
                 <outlet property="segment2" destination="zhR-ZL-y0F" id="vzg-zb-ZWQ"/>
                 <outlet property="segment3" destination="4vs-3C-OtL" id="T77-tN-mIC"/>
@@ -35,7 +37,7 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="735"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="847"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sbH-t1-xkh">
@@ -60,9 +62,12 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ie-ZA-Ite">
                     <rect key="frame" x="15" y="26" width="32" height="26"/>
                     <state key="normal" image="Menu_Nav_icon.png"/>
+                    <connections>
+                        <action selector="leftSideMenuButtonPressed:" destination="-1" eventType="touchUpInside" id="PxY-Yp-Cpq"/>
+                    </connections>
                 </button>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qry-ev-9mi">
-                    <rect key="frame" x="0.0" y="79" width="375" height="656"/>
+                    <rect key="frame" x="0.0" y="79" width="375" height="768"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WHAT WOULD YOU LIKE ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EUw-ER-z1c">
                             <rect key="frame" x="15" y="46" width="352" height="19"/>
@@ -89,7 +94,7 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="t0h-3l-WuT"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="14"/>
+                            <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="12"/>
                             <color key="textColor" red="0.41960784309999999" green="0.23921568630000001" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -170,6 +175,25 @@
                                 <segment title="other"/>
                             </segments>
                         </segmentedControl>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hOO-Lx-G2V">
+                            <rect key="frame" x="15" y="671" width="344" height="45"/>
+                            <color key="backgroundColor" red="0.41960784309999999" green="0.23921568630000001" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="45" id="g5s-L3-X2x"/>
+                            </constraints>
+                            <state key="normal" title="Save Preferences">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100% of tip goes to driver" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcm-Z5-XOx">
+                            <rect key="frame" x="15" y="599" width="344" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="3Xs-bt-vJW"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="12"/>
+                            <color key="textColor" red="0.41960784309999999" green="0.23921568630000001" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <constraints>
                         <constraint firstItem="Gpc-LN-Cu1" firstAttribute="centerX" secondItem="Qry-ev-9mi" secondAttribute="centerX" id="1fu-Wc-33f"/>
@@ -177,7 +201,10 @@
                         <constraint firstItem="zhR-ZL-y0F" firstAttribute="trailing" secondItem="PiW-AC-2b9" secondAttribute="trailing" id="4ra-Ra-30V"/>
                         <constraint firstItem="tFQ-jm-upF" firstAttribute="leading" secondItem="9ws-5s-fAd" secondAttribute="leading" id="6Gk-9b-aUM"/>
                         <constraint firstItem="Gpc-LN-Cu1" firstAttribute="leading" secondItem="EUw-ER-z1c" secondAttribute="leading" id="7fO-dp-5MC"/>
+                        <constraint firstItem="9ws-5s-fAd" firstAttribute="leading" secondItem="Qry-ev-9mi" secondAttribute="leading" constant="15" id="89t-T8-8zh"/>
                         <constraint firstAttribute="bottom" secondItem="zhR-ZL-y0F" secondAttribute="bottom" constant="378" id="8aK-mH-Pf5"/>
+                        <constraint firstItem="zhR-ZL-y0F" firstAttribute="leading" secondItem="Qry-ev-9mi" secondAttribute="leading" constant="15" id="AtT-Pb-Hnq"/>
+                        <constraint firstItem="hOO-Lx-G2V" firstAttribute="leading" secondItem="Qry-ev-9mi" secondAttribute="leading" constant="15" id="CiY-jS-NMB"/>
                         <constraint firstAttribute="bottom" secondItem="sEQ-CC-mPj" secondAttribute="bottom" constant="88" id="Co7-F9-1Cd"/>
                         <constraint firstItem="MT5-5R-4m4" firstAttribute="leading" secondItem="Gpc-LN-Cu1" secondAttribute="leading" id="D7V-Zr-utM"/>
                         <constraint firstItem="MT5-5R-4m4" firstAttribute="trailing" secondItem="Gpc-LN-Cu1" secondAttribute="trailing" id="Duv-pj-k0i"/>
@@ -186,32 +213,50 @@
                         <constraint firstItem="MT5-5R-4m4" firstAttribute="top" secondItem="Gpc-LN-Cu1" secondAttribute="bottom" constant="8" symbolic="YES" id="Jbi-4f-e8o"/>
                         <constraint firstItem="4vs-3C-OtL" firstAttribute="top" secondItem="Q3V-qA-lch" secondAttribute="bottom" constant="8" symbolic="YES" id="Jrw-os-qHl"/>
                         <constraint firstAttribute="bottom" secondItem="MT5-5R-4m4" secondAttribute="bottom" constant="456" id="K2Z-CL-EfG"/>
+                        <constraint firstItem="4vs-3C-OtL" firstAttribute="leading" secondItem="Qry-ev-9mi" secondAttribute="leading" constant="15" id="KJg-Ot-hTs"/>
+                        <constraint firstItem="hOO-Lx-G2V" firstAttribute="top" secondItem="hcm-Z5-XOx" secondAttribute="bottom" constant="51" id="KKN-gW-4gG"/>
                         <constraint firstItem="9ws-5s-fAd" firstAttribute="top" secondItem="sEQ-CC-mPj" secondAttribute="bottom" constant="34" id="KPY-IJ-URg"/>
                         <constraint firstItem="9ws-5s-fAd" firstAttribute="trailing" secondItem="sEQ-CC-mPj" secondAttribute="trailing" id="M5S-Az-GCh"/>
                         <constraint firstAttribute="bottom" secondItem="EUw-ER-z1c" secondAttribute="bottom" constant="521" id="NHW-Ue-2Qs"/>
                         <constraint firstItem="Q3V-qA-lch" firstAttribute="trailing" secondItem="zhR-ZL-y0F" secondAttribute="trailing" constant="8" id="ONb-ib-ffH"/>
+                        <constraint firstAttribute="trailing" secondItem="4vs-3C-OtL" secondAttribute="trailing" constant="16" id="Oew-NF-JTc"/>
+                        <constraint firstItem="hcm-Z5-XOx" firstAttribute="top" secondItem="tFQ-jm-upF" secondAttribute="bottom" constant="8" symbolic="YES" id="PyE-um-Q3v"/>
                         <constraint firstItem="tFQ-jm-upF" firstAttribute="top" secondItem="9ws-5s-fAd" secondAttribute="bottom" constant="8" symbolic="YES" id="Q4I-yF-gM2"/>
                         <constraint firstAttribute="bottom" secondItem="tFQ-jm-upF" secondAttribute="bottom" constant="65" id="QJz-9G-QqT"/>
                         <constraint firstItem="zhR-ZL-y0F" firstAttribute="top" secondItem="PiW-AC-2b9" secondAttribute="bottom" constant="8" symbolic="YES" id="RKV-3e-bok"/>
                         <constraint firstItem="EUw-ER-z1c" firstAttribute="trailing" secondItem="Qry-ev-9mi" secondAttribute="trailingMargin" id="SDh-mN-cRj"/>
                         <constraint firstItem="Q3V-qA-lch" firstAttribute="top" secondItem="zhR-ZL-y0F" secondAttribute="bottom" constant="40" id="SG2-JP-wpx"/>
+                        <constraint firstItem="hOO-Lx-G2V" firstAttribute="trailing" secondItem="hcm-Z5-XOx" secondAttribute="trailing" id="TMo-xZ-v54"/>
                         <constraint firstItem="Q3V-qA-lch" firstAttribute="leading" secondItem="zhR-ZL-y0F" secondAttribute="leading" constant="-7" id="USQ-WK-bMV"/>
                         <constraint firstItem="sEQ-CC-mPj" firstAttribute="trailing" secondItem="4vs-3C-OtL" secondAttribute="trailing" id="VZf-nk-3P7"/>
                         <constraint firstItem="tFQ-jm-upF" firstAttribute="trailing" secondItem="9ws-5s-fAd" secondAttribute="trailing" id="WwD-iu-bVS"/>
+                        <constraint firstItem="Gpc-LN-Cu1" firstAttribute="leading" secondItem="Qry-ev-9mi" secondAttribute="leading" constant="15" id="XCS-W2-j0S"/>
                         <constraint firstItem="4vs-3C-OtL" firstAttribute="leading" secondItem="zhR-ZL-y0F" secondAttribute="leading" id="Xno-UH-dzE"/>
                         <constraint firstItem="Gpc-LN-Cu1" firstAttribute="top" secondItem="EUw-ER-z1c" secondAttribute="bottom" constant="8" symbolic="YES" id="YJT-6M-xzn"/>
                         <constraint firstAttribute="trailing" secondItem="EUw-ER-z1c" secondAttribute="trailing" constant="8" id="YSF-pg-D0N"/>
+                        <constraint firstAttribute="bottom" secondItem="hOO-Lx-G2V" secondAttribute="bottom" constant="52" id="Z42-o8-Gxs"/>
                         <constraint firstAttribute="bottom" secondItem="4vs-3C-OtL" secondAttribute="bottom" constant="262" id="Zcu-jV-Jzp"/>
                         <constraint firstAttribute="bottom" secondItem="9ws-5s-fAd" secondAttribute="bottom" constant="101" id="Zo9-hD-OId"/>
                         <constraint firstItem="4vs-3C-OtL" firstAttribute="trailing" secondItem="zhR-ZL-y0F" secondAttribute="trailing" id="eGc-pW-UDb"/>
+                        <constraint firstItem="tFQ-jm-upF" firstAttribute="leading" secondItem="Qry-ev-9mi" secondAttribute="leading" constant="15" id="fdw-rP-G4O"/>
                         <constraint firstItem="PiW-AC-2b9" firstAttribute="leading" secondItem="MT5-5R-4m4" secondAttribute="leading" id="fhD-iA-3sU"/>
+                        <constraint firstAttribute="trailing" secondItem="Gpc-LN-Cu1" secondAttribute="trailing" constant="16" id="fxZ-en-r1k"/>
                         <constraint firstAttribute="bottom" secondItem="PiW-AC-2b9" secondAttribute="bottom" constant="394" id="h3S-rH-saR"/>
+                        <constraint firstAttribute="trailing" secondItem="tFQ-jm-upF" secondAttribute="trailing" constant="16" id="kd2-qV-MWC"/>
                         <constraint firstItem="zhR-ZL-y0F" firstAttribute="leading" secondItem="PiW-AC-2b9" secondAttribute="leading" id="l3q-TT-xkb"/>
                         <constraint firstItem="sEQ-CC-mPj" firstAttribute="leading" secondItem="4vs-3C-OtL" secondAttribute="leading" id="mQ0-ca-K2j"/>
+                        <constraint firstAttribute="trailing" secondItem="hOO-Lx-G2V" secondAttribute="trailing" constant="16" id="ncO-RM-acv"/>
                         <constraint firstItem="9ws-5s-fAd" firstAttribute="leading" secondItem="sEQ-CC-mPj" secondAttribute="leading" id="oks-En-Kbh"/>
                         <constraint firstItem="sEQ-CC-mPj" firstAttribute="top" secondItem="4vs-3C-OtL" secondAttribute="bottom" constant="40" id="ppx-Ir-xYT"/>
+                        <constraint firstItem="sEQ-CC-mPj" firstAttribute="leading" secondItem="Qry-ev-9mi" secondAttribute="leading" constant="15" id="q7c-O5-IBn"/>
+                        <constraint firstItem="hcm-Z5-XOx" firstAttribute="leading" secondItem="tFQ-jm-upF" secondAttribute="leading" id="qK5-vb-DXp"/>
+                        <constraint firstItem="hOO-Lx-G2V" firstAttribute="leading" secondItem="hcm-Z5-XOx" secondAttribute="leading" id="rgP-c5-Koc"/>
+                        <constraint firstAttribute="trailing" secondItem="9ws-5s-fAd" secondAttribute="trailing" constant="16" id="t6w-vO-piy"/>
                         <constraint firstAttribute="bottom" secondItem="Gpc-LN-Cu1" secondAttribute="bottom" constant="485" id="ucm-WN-V7b"/>
+                        <constraint firstAttribute="trailing" secondItem="zhR-ZL-y0F" secondAttribute="trailing" constant="16" id="wlM-0v-vqQ"/>
+                        <constraint firstAttribute="trailing" secondItem="sEQ-CC-mPj" secondAttribute="trailing" constant="16" id="xLB-30-bDc"/>
                         <constraint firstItem="PiW-AC-2b9" firstAttribute="trailing" secondItem="MT5-5R-4m4" secondAttribute="trailing" id="xtT-OQ-pvN"/>
+                        <constraint firstItem="hcm-Z5-XOx" firstAttribute="trailing" secondItem="tFQ-jm-upF" secondAttribute="trailing" id="zQk-YX-i8Y"/>
                     </constraints>
                     <variation key="default">
                         <mask key="constraints">
@@ -223,6 +268,7 @@
                             <exclude reference="Zcu-jV-Jzp"/>
                             <exclude reference="Co7-F9-1Cd"/>
                             <exclude reference="Zo9-hD-OId"/>
+                            <exclude reference="QJz-9G-QqT"/>
                         </mask>
                     </variation>
                 </scrollView>
@@ -254,7 +300,7 @@
                     <exclude reference="EIM-BX-4qa"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="275.5" y="211.5"/>
+            <point key="canvasLocation" x="275.5" y="267.5"/>
         </view>
     </objects>
     <resources>

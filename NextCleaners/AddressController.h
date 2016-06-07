@@ -9,9 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "FPPopoverController.h"
 #import <MapKit/MapKit.h>
+#import "MBProgressHUD.h"
+#import "APIHandler.h"
 
 
-@interface AddressController : UIViewController
+
+@interface AddressController : UIViewController<MBProgressHUDDelegate,InternetHandlerDelegate>
 {
     IBOutlet MKMapView *mapView;
     
@@ -21,6 +24,8 @@
 }
 @property(retain,nonatomic) FPPopoverController *popover;
 @property(retain,nonatomic)IBOutlet MKMapView *mapView;
+@property(retain,nonatomic)MBProgressHUD *HUD;
+@property(retain,nonatomic) NSString *userId;
 
 -(void)selectedTableRow:(NSUInteger)rowNum;
 

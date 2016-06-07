@@ -24,6 +24,9 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Promotion.png" translatesAutoresizingMaskIntoConstraints="NO" id="Kgy-u6-3nu">
+                    <rect key="frame" x="0.0" y="70" width="375" height="597"/>
+                </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2zK-03-uL4">
                     <rect key="frame" x="0.0" y="70" width="375" height="1"/>
                     <color key="backgroundColor" red="0.41960784309999999" green="0.23921568630000001" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -46,20 +49,10 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yBD-54-hOs">
                     <rect key="frame" x="15" y="31" width="32" height="26"/>
                     <state key="normal" image="Menu_Nav_icon.png"/>
+                    <connections>
+                        <action selector="leftSideMenuButtonPressed:" destination="-1" eventType="touchUpInside" id="haH-Yh-RvE"/>
+                    </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ReferSymbol.png" translatesAutoresizingMaskIntoConstraints="NO" id="ziS-wD-pFU">
-                    <rect key="frame" x="67" y="111" width="240" height="128"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="128" id="GcZ-Ia-lDB"/>
-                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="IVZ-Oh-QLg"/>
-                        <constraint firstAttribute="width" constant="240" id="k3E-EX-AEB"/>
-                    </constraints>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="IVZ-Oh-QLg"/>
-                        </mask>
-                    </variation>
-                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hgL-E7-i0j">
                     <rect key="frame" x="15" y="569" width="346" height="40"/>
                     <color key="backgroundColor" red="0.41960784309999999" green="0.23921568630000001" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -75,9 +68,7 @@
                 <constraint firstItem="hgL-E7-i0j" firstAttribute="centerX" secondItem="2zK-03-uL4" secondAttribute="centerX" id="IeP-Gr-hmL"/>
                 <constraint firstItem="hgL-E7-i0j" firstAttribute="leading" secondItem="yBD-54-hOs" secondAttribute="leading" id="QTR-BX-Wtd"/>
                 <constraint firstAttribute="trailing" secondItem="2zK-03-uL4" secondAttribute="trailing" id="Ss5-wx-iea"/>
-                <constraint firstItem="ziS-wD-pFU" firstAttribute="top" secondItem="2zK-03-uL4" secondAttribute="bottom" constant="40" id="aHo-TJ-d34"/>
                 <constraint firstItem="9y1-ZB-cqM" firstAttribute="leading" secondItem="yBD-54-hOs" secondAttribute="trailing" constant="73" id="aVk-HO-KLr"/>
-                <constraint firstItem="ziS-wD-pFU" firstAttribute="centerX" secondItem="2zK-03-uL4" secondAttribute="centerX" id="ayd-rs-h9q"/>
                 <constraint firstItem="9y1-ZB-cqM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="34" id="bIV-vq-iXU"/>
                 <constraint firstItem="9y1-ZB-cqM" firstAttribute="centerX" secondItem="2zK-03-uL4" secondAttribute="centerX" id="bTb-dC-VTN"/>
                 <constraint firstAttribute="bottom" secondItem="hgL-E7-i0j" secondAttribute="bottom" constant="58" id="gMa-kR-C4c"/>
@@ -86,19 +77,17 @@
                 <constraint firstItem="yBD-54-hOs" firstAttribute="centerY" secondItem="9y1-ZB-cqM" secondAttribute="centerY" id="nao-9w-udf"/>
                 <constraint firstItem="2zK-03-uL4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="z2s-6G-kmh"/>
                 <constraint firstItem="2zK-03-uL4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="70" id="zRa-DW-PLD"/>
-                <constraint firstItem="ziS-wD-pFU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="67" id="ziP-QT-H7R"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <variation key="default">
                 <mask key="constraints">
                     <exclude reference="aVk-HO-KLr"/>
-                    <exclude reference="ziP-QT-H7R"/>
                 </mask>
             </variation>
         </view>
     </objects>
     <resources>
         <image name="Menu_Nav_icon.png" width="32" height="26"/>
-        <image name="ReferSymbol.png" width="230" height="166"/>
+        <image name="Promotion.png" width="640" height="1136"/>
     </resources>
 </document>
